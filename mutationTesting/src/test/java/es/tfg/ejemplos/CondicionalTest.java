@@ -9,6 +9,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 public class CondicionalTest {
     private Condicional condicional;
     private Condicional2 condicional2;
+
     @Before
     public void inicializa(){
         this.condicional = new Condicional();
