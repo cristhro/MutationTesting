@@ -1,27 +1,31 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Arbol {
     /* Atributos */
-    private Nodo raiz;
-
+    private Nodo nodoRaiz;
+    private HashMap<Integer,ArrayList<ArrayList<Integer>>> caminos;
+    
     /* Contructories */
     public Arbol() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.caminos = new  HashMap<Integer,ArrayList<ArrayList<Integer>>> ();
+
 	}
     public Arbol( Datos dato ) {
-        this.raiz = new Nodo(dato);
+    		this();
+        this.nodoRaiz = new Nodo(dato);
     }
     public Arbol( int arr[] ) {
-        this.raiz = arrayToArbolBinario(arr, 0, arr.length - 1);
-        asignarCaminosRec (this.raiz);
+    		this();
+        this.nodoRaiz = arrayToArbolBinario(arr, 0, arr.length - 1);
+        asignarCaminosRec (this.nodoRaiz);
     }
-
     public Arbol( int profundidad ) {
         this();
         //int numHojas =  (int) Math.pow(2, profundidad);
     }
-    
+
     private Nodo arrayToArbolBinario(int arr[], int start, int end) {
 
         /* Caso base */
@@ -33,48 +37,46 @@ public class Arbol {
         int mid = (start + end) / 2;
         Nodo node = new Nodo(new Datos(mid, arr[mid]));
 
-        node.setHojaIzquierda( arrayToArbolBinario(arr, start, mid - 1));
-        node.setHojaDerecha(arrayToArbolBinario(arr, mid + 1, end));
+        node.setNodoIzq( arrayToArbolBinario(arr, start, mid - 1));
+        node.setNodoDer(arrayToArbolBinario(arr, mid + 1, end));
 
         return node;
     }
-    public Arbol( Nodo raiz ) {
-        this.raiz = raiz;
+    public Arbol( Nodo nodoRaiz ) {
+        this.nodoRaiz = nodoRaiz;
     }
 
     /* Setters y Getters */
     public Nodo getRaiz() {
-        return raiz;
+        return nodoRaiz;
     }
 
-    public void setRaiz(Nodo raiz) {
-        this.raiz = raiz;
+    public void setRaiz(Nodo nodoRaiz) {
+        this.nodoRaiz = nodoRaiz;
     }
 
-    private void addNodo( Nodo nodo, Nodo raiz ) {
+    private void addNodo( Nodo nodo, Nodo nodoRaiz ) {
         /* 2.- Partiendo de la raíz preguntamos: Nodo == null ( o no existe ) ? */
-        if ( raiz == null ) {
+        if ( nodoRaiz == null ) {
             /*
              * 3.- En caso afirmativo X pasa a ocupar el lugar del nodo y ya
              * hemos ingresado nuestro primer dato.
-             * ==== EDITO =====
-             * Muchas gracias a @Espectro por la corrección de esta línea
              */
             this.setRaiz(nodo);
         }
         else {
             /* 4.- En caso negativo preguntamos: X < Nodo */
-            if ( nodo.getValor().getPos() <= raiz.getValor().getPos() ) {
+            if ( nodo.getDatos().getPos() <= nodoRaiz.getDatos().getPos() ) {
                 /*
                  * 5.- En caso de ser menor pasamos al Nodo de la IZQUIERDA del
                  * que acabamos de preguntar y repetimos desde el paso 2
                  * partiendo del Nodo al que acabamos de visitar
                  */
-                if (raiz.getHojaIzquierda() == null) {
-                    raiz.setHojaIzquierda(nodo);
+                if (nodoRaiz.getNodoIzq() == null) {
+                    nodoRaiz.setNodoIzq(nodo);
                 }
                 else {
-                    addNodo( nodo , raiz.getHojaIzquierda() );
+                    addNodo( nodo , nodoRaiz.getNodoIzq() );
                 }
             }
             else {
@@ -83,96 +85,110 @@ public class Arbol {
                  * cual hicimos con el caso anterior repetimos desde el paso 2
                  * partiendo de este nuevo Nodo.
                  */
-                if (raiz.getHojaDerecha() == null) {
-                    raiz.setHojaDerecha(nodo);
+                if (nodoRaiz.getNodoDer() == null) {
+                    nodoRaiz.setNodoDer(nodo);
                 }
                 else {
-                    addNodo( nodo, raiz.getHojaDerecha() );
+                    addNodo( nodo, nodoRaiz.getNodoDer() );
                 }
             }
         }
     }
 
     public void addNodo( Nodo nodo ) {
-        this.addNodo( nodo , this.raiz );
+        this.addNodo( nodo , this.nodoRaiz );
     }
 
     // EMPIEZA EL RECORRIDO EN PREORDEN
     public void recorridoPreorden()
     {
-        ayudantePreorden(this.raiz);
+        ayudantePreorden(this.nodoRaiz);
     }
     //meoto recursivo para recorrido en preorden
-
     private void ayudantePreorden(Nodo nodo)
     {
         if(nodo == null)
             return;
-        System.out.print(nodo.getValor().getValor() + " ");     //mostrar datos del nodo
-        ayudantePreorden(nodo.getHojaIzquierda());   //recorre subarbol izquierdo
-        ayudantePreorden(nodo.getHojaDerecha());     //recorre subarbol derecho
+        System.out.print(nodo.getDatos().toString() + "\n");     //mostrar datos del nodo
+        ayudantePreorden(nodo.getNodoIzq());   //recorre subarbol izquierdo
+        ayudantePreorden(nodo.getNodoDer());     //recorre subarbol derecho
     }
-    
+
     /* Funciones */
     public ArrayList<Integer> getOutputs( ArrayList<Integer> inputs){
     		ArrayList<Integer> outputs = new ArrayList<Integer>();
 
-        calcularOutPutsRec( this.raiz, inputs,  outputs);
+        calcularOutPutsRec( this.nodoRaiz, inputs,  outputs);
 
         return outputs;
     }
-    private  void calcularOutPutsRec (Nodo actual, ArrayList<Integer>inputs, ArrayList<Integer> outputs) {
-        if ( actual.getHojaDerecha() == null && actual.getHojaIzquierda() == null) {
+    private  void calcularOutPutsRec (Nodo nodoActual, ArrayList<Integer>inputs, ArrayList<Integer> outputs) {
+        if ( nodoActual.getNodoDer() == null && nodoActual.getNodoIzq() == null) {
             return;
         }
         else{
           	int elem=inputs.remove(0);
             // Derecha
-            if ( elem == 0 && actual.getHojaDerecha() != null){
-	            	Nodo nodoDer = actual.getHojaDerecha();
-	        		Datos dato = nodoDer.getValor();
+            if ( elem == 0 && nodoActual.getNodoDer() != null){
+	            	Nodo nodoDer = nodoActual.getNodoDer();
+	        		Datos dato = nodoDer.getDatos();
                 outputs.add(dato.getPos());
-               
-                calcularOutPutsRec(actual.getHojaDerecha(),inputs, outputs);
+
+                calcularOutPutsRec(nodoActual.getNodoDer(),inputs, outputs);
             }
             // Izquierda
-            if (elem == 1 && actual.getHojaIzquierda() != null){
-            		Nodo nodoIzq = actual.getHojaIzquierda();
-            		Datos dato = nodoIzq.getValor();
+            if (elem == 1 && nodoActual.getNodoIzq() != null){
+            		Nodo nodoIzq = nodoActual.getNodoIzq();
+            		Datos dato = nodoIzq.getDatos();
             		outputs.add(dato.getPos());
-            
-                calcularOutPutsRec(actual.getHojaIzquierda(),inputs, outputs);            
+
+                calcularOutPutsRec(nodoActual.getNodoIzq(),inputs, outputs);
             }
         }
     }
    /**
     * Precondicion: Arbol inicializado
     * Postcondicion: Todos los nodos del arbol tendran el
-    * @param actual
+    * @param nodoActual
     */
-    private  void asignarCaminosRec (Nodo actual) {
-        if ( actual.getHojaDerecha() == null && actual.getHojaIzquierda() == null) {
+    private  void asignarCaminosRec (Nodo nodoActual) {
+        if ( nodoActual.getNodoDer() == null && nodoActual.getNodoIzq() == null) {
             return;
         }
         else{
-        		ArrayList<Integer> caminoActual = actual.getValor().getCamino(); 
         		
             // Derecha 0
-            if (actual.getHojaDerecha() != null){
+            if (nodoActual.getNodoDer() != null){
+            		ArrayList<Integer> caminoActual = new ArrayList<Integer>(nodoActual.getDatos().getCamino());
             		caminoActual.add(0);
-            		Datos dato = actual.getHojaDerecha().getValor();
-            		dato.setCamino(caminoActual);
-            		actual.getHojaDerecha().setValor(dato);
-            		asignarCaminosRec(actual.getHojaDerecha());
+            		
+            		if(this.caminos.containsKey(caminoActual.size())) {
+            			this.caminos.get(caminoActual.size()).add(caminoActual);
+            		}else {
+            			this.caminos.put(caminoActual.size(), new ArrayList<ArrayList<Integer>>());
+            			this.caminos.get(caminoActual.size()).add(caminoActual);
+            		}
+         
+            		nodoActual.getNodoDer().getDatos().setCamino(caminoActual);
+            		asignarCaminosRec(nodoActual.getNodoDer());
             }
             // Izquierda 1
-            if (actual.getHojaIzquierda() != null){
-	            	caminoActual.add(0);
-	        		Datos dato = actual.getHojaIzquierda().getValor();
-	        		dato.setCamino(caminoActual);
-	        		actual.getHojaIzquierda().setValor(dato);      
-         		asignarCaminosRec(actual.getHojaIzquierda());            
+            if (nodoActual.getNodoIzq() != null){
+            		ArrayList<Integer> caminoActual = new ArrayList<Integer>(nodoActual.getDatos().getCamino());
+	            	caminoActual.add(1);
+	            	if(this.caminos.containsKey(caminoActual.size())) {
+            			this.caminos.get(caminoActual.size()).add(caminoActual);
+            		}else {
+            			this.caminos.put(caminoActual.size(), new ArrayList<ArrayList<Integer>>());
+            			this.caminos.get(caminoActual.size()).add(caminoActual);
+            		}
+	        		nodoActual.getNodoIzq().getDatos().setCamino(caminoActual);
+         		asignarCaminosRec(nodoActual.getNodoIzq());
             }
         }
     }
+    public HashMap<Integer,ArrayList<ArrayList<Integer>>> getCaminos(){
+    		return this.caminos;
+    }
+    
 }

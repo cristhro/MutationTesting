@@ -5,10 +5,18 @@ public class Datos {
     private int valor;
     private ArrayList <Integer> camino;
     
-    public Datos(int pos, int valor) {
+    public Datos() {
+		super();
+	}
+	public Datos(int pos, int valor) {
         this.pos = pos;
         this.valor = valor;
         this.camino = new ArrayList <Integer>();
+    }
+    public Datos(int pos, int valor, ArrayList <Integer> camino) {
+        this.pos = pos;
+        this.valor = valor;
+        this.camino = camino;
     }
 
     public int getPos() {
@@ -40,6 +48,7 @@ public class Datos {
         return "Datos{" +
                 "pos=" + pos +
                 ", valor=" + valor +
+                "  camino=" + camino +
                 '}';
     }
 }
