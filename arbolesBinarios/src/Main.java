@@ -1,15 +1,26 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main (String [ ] args) {
 
         // 1 Creamos el array con numeros aleatorios, establecidos dentro de un rango
-        int[] numerosAleatorios = obtenerArrayAleatorio(10,1,3);
-
+        int[] numerosAleatorios = obtenerArrayAleatorio(7,1,1);
+        
         // 2 Creamos el arbol a partir del array aleatorio
         Arbol arbolBinario = new Arbol(numerosAleatorios);
 
         // 3 Mostramos el arbol
         arbolBinario.recorridoPreorden();
-
+        
+        // 4 Obtenemos los outPuts
+        int[] list={1,0,0,0,1,0};
+        ArrayList<Integer> intputs =new ArrayList<Integer>();
+        
+        for (int i= 0; i< list.length ; i++) {intputs.add(list[i]);}
+        ArrayList<Integer> outputs = arbolBinario.getOutputs(intputs);
+        System.out.print(outputs);
+        
     }
 
     /**

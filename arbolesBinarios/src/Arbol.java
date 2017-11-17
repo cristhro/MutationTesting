@@ -1,15 +1,27 @@
+import java.util.ArrayList;
+
 public class Arbol {
     /* Atributos */
     private Nodo raiz;
 
     /* Contructories */
+    public Arbol() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
     public Arbol( Datos dato ) {
         this.raiz = new Nodo(dato);
     }
     public Arbol( int arr[] ) {
         this.raiz = arrayToArbolBinario(arr, 0, arr.length - 1);
+        asignarCaminosRec (this.raiz);
     }
 
+    public Arbol( int profundidad ) {
+        this();
+        //int numHojas =  (int) Math.pow(2, profundidad);
+    }
+    
     private Nodo arrayToArbolBinario(int arr[], int start, int end) {
 
         /* Caso base */
@@ -100,5 +112,67 @@ public class Arbol {
         ayudantePreorden(nodo.getHojaIzquierda());   //recorre subarbol izquierdo
         ayudantePreorden(nodo.getHojaDerecha());     //recorre subarbol derecho
     }
+    
+    /* Funciones */
+    public ArrayList<Integer> getOutputs( ArrayList<Integer> inputs){
+    		ArrayList<Integer> outputs = new ArrayList<Integer>();
 
+        calcularOutPutsRec( this.raiz, inputs,  outputs);
+
+        return outputs;
+    }
+    private  void calcularOutPutsRec (Nodo actual, ArrayList<Integer>inputs, ArrayList<Integer> outputs) {
+        if ( actual.getHojaDerecha() == null && actual.getHojaIzquierda() == null) {
+            return;
+        }
+        else{
+          	int elem=inputs.remove(0);
+            // Derecha
+            if ( elem == 0 && actual.getHojaDerecha() != null){
+	            	Nodo nodoDer = actual.getHojaDerecha();
+	        		Datos dato = nodoDer.getValor();
+                outputs.add(dato.getPos());
+               
+                calcularOutPutsRec(actual.getHojaDerecha(),inputs, outputs);
+            }
+            // Izquierda
+            if (elem == 1 && actual.getHojaIzquierda() != null){
+            		Nodo nodoIzq = actual.getHojaIzquierda();
+            		Datos dato = nodoIzq.getValor();
+            		outputs.add(dato.getPos());
+            
+                calcularOutPutsRec(actual.getHojaIzquierda(),inputs, outputs);            
+            }
+        }
+    }
+   /**
+    * Precondicion: Arbol inicializado
+    * Postcondicion: Todos los nodos del arbol tendran el
+    * @param actual
+    */
+    private  void asignarCaminosRec (Nodo actual) {
+        if ( actual.getHojaDerecha() == null && actual.getHojaIzquierda() == null) {
+            return;
+        }
+        else{
+        		ArrayList<Integer> caminoActual = actual.getValor().getCamino(); 
+        		
+            // Derecha 0
+            if (actual.getHojaDerecha() != null){
+            		caminoActual.add(0);
+            		Datos dato = actual.getHojaDerecha().getValor();
+            		dato.setCamino(caminoActual);
+            		actual.getHojaDerecha().setValor(dato);
+            		asignarCaminosRec(actual.getHojaDerecha());
+            }
+            // Izquierda 1
+            if (actual.getHojaIzquierda() != null){
+	            	caminoActual.add(0);
+	        		Datos dato = actual.getHojaIzquierda().getValor();
+	        		dato.setCamino(caminoActual);
+	        		actual.getHojaIzquierda().setValor(dato);      
+         		asignarCaminosRec(actual.getHojaIzquierda());            
+            }
+        }
+    }
 }

@@ -1,10 +1,14 @@
+import java.util.ArrayList;
+
 public class Datos {
     private int pos;
     private int valor;
-
+    private ArrayList <Integer> camino;
+    
     public Datos(int pos, int valor) {
         this.pos = pos;
         this.valor = valor;
+        this.camino = new ArrayList <Integer>();
     }
 
     public int getPos() {
@@ -22,8 +26,16 @@ public class Datos {
     public void setValor(int valor) {
         this.valor = valor;
     }
+    
+    public ArrayList<Integer> getCamino() {
+		return camino;
+	}
 
-    @Override
+	public void setCamino(ArrayList<Integer> camino) {
+		this.camino = camino;
+	}
+
+	@Override
     public String toString() {
         return "Datos{" +
                 "pos=" + pos +
