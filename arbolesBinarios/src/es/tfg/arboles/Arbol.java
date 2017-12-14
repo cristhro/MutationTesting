@@ -9,7 +9,6 @@ public class Arbol {
     private HashMap<Integer,ArrayList<ArrayList<Integer>>> collectionInputs;
     private boolean killed;
     
-    
 	/* Contructories */
     public Arbol() {
 		super();

@@ -10,8 +10,13 @@ public class RecursiveTable {
 		int nivel = 3;
 		
 	    int numNodos = obtenerNumNodos(nivel);
-	    ArrayList<ArrayList<Integer>> mutantes = generateMutants(numNodos);
+	    System.out.println("numNodos" +numNodos);
+	    ArrayList<ArrayList<Integer>> mutantes = generateMutants(10);
+	    
+	    System.out.println(mutantes.size());
+	    //System.out.println(mutantes);
 	    ArrayList<Integer> testSuite = obtenerTestSuites(numNodos);
+	    System.out.println(testSuite);
 	    ArrayList<Integer> mutanteOriginal = mutantes.remove(0);
 	    
 	    int totalMutantes = mutantes.size();
@@ -42,10 +47,10 @@ public class RecursiveTable {
 		testSuite.add(1);
 		return  testSuite;
 	}
-	private static  Integer obtenerNumNodos(int nivel) {
+	public static  Integer obtenerNumNodos(int nivel) {
 		return  (int) Math.pow(2, nivel) - 1;
 	}
-	private static  ArrayList<ArrayList<Integer>> generateMutants(int numNodos) {
+	public static  ArrayList<ArrayList<Integer>> generateMutants(int numNodos) {
 		ArrayList<ArrayList<Integer>> mutantes = new ArrayList<ArrayList<Integer>>();
 		generateTableRec(0, numNodos, new int[numNodos], mutantes );
 		return mutantes;
