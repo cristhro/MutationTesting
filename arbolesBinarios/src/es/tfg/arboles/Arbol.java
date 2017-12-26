@@ -1,6 +1,7 @@
 package es.tfg.arboles;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Arbol {
     /* Atributos */
@@ -26,7 +27,7 @@ public class Arbol {
         this.nodoRaiz = arrayToArbolBinario(arr, 0, arr.length - 1);
         asignarCaminosRec (this.nodoRaiz);
     }
-    public Arbol( ArrayList<Integer> arr ) {
+    public Arbol( LinkedList<Integer> arr ) {
 		this();
 	    this.nodoRaiz = arrayToArbolBinario(arr, 0, arr.size() - 1);
 	    asignarCaminosRec (this.nodoRaiz);
@@ -52,7 +53,7 @@ public class Arbol {
 
         return node;
     }
-    private Nodo arrayToArbolBinario(ArrayList<Integer> arr, int start, int end) {
+    private Nodo arrayToArbolBinario(LinkedList<Integer> arr, int start, int end) {
 
         /* Caso base */
         if (start > end) {

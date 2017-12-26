@@ -1,3 +1,4 @@
+package es.tfg.mutantes;
 import java.util.ArrayList;
 
 public class RecursiveTable {
@@ -7,13 +8,13 @@ public class RecursiveTable {
 	 * @param args
 	 */
 	public static void main(String args[]) {
-		int nivel = 3;
+		int nivel = 2;
 		
 	    int numNodos = obtenerNumNodos(nivel);
-	    System.out.println("numNodos" +numNodos);
+	    System.out.println("numNodos " + numNodos);
 	    ArrayList<ArrayList<Integer>> mutantes = generateMutants(10);
 	    
-	    System.out.println(mutantes.size());
+	    /*System.out.println(mutantes.size());
 	    //System.out.println(mutantes);
 	    ArrayList<Integer> testSuite = obtenerTestSuites(numNodos);
 	    System.out.println(testSuite);
@@ -38,7 +39,7 @@ public class RecursiveTable {
 				
 			}
 		double a = totalKilled, b =  totalMutantes;
-			System.out.println(a/b);
+			System.out.println(a/b);*/
 	    
 	}
 	private static   ArrayList<Integer> obtenerTestSuites(int numNodos) {
@@ -67,10 +68,10 @@ public class RecursiveTable {
 	    		ArrayList<Integer> mutante = new ArrayList<Integer> ();
 	        for(int i = 0; i < size; i++) {
 	        		mutante.add(current[i]);
-	            //System.out.print(current[i] + " ");
+	            System.out.print(current[i] + " ");
 	        }
 	        mutantes.add(mutante);
-	        //System.out.println();
+	        System.out.println();
 	    } else {
 	        for(int i = 0; i < 2; i++) {
 	            current[index] = i;

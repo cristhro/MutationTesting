@@ -8,7 +8,10 @@ import java.util.Scanner;
 
 public class Fichero implements IFichero{
 	private File ficheroIn;
+	private FileWriter ficheroOut;
 	private int finDeLinea;
+	private Scanner in;
+	
 	public Fichero() {
 		super();
 	}
@@ -53,12 +56,6 @@ public class Fichero implements IFichero{
 	}
 
 	@Override
-	public Boolean guardarListaEnteros() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ArrayList<ArrayList<Integer>> ejecutarLeerColeccionListasEnteros() {
 		ArrayList<ArrayList<Integer>> coleccionListas = new ArrayList<ArrayList<Integer>>();
 		Scanner in = null;
@@ -90,22 +87,14 @@ public class Fichero implements IFichero{
 	
 	public static void main(String[] args) {
 	
-		
-	
 			String nombreFichero = "fichero.txt";
 			String nombreFicheroOut = "fichero4.txt";
 			Fichero f = new Fichero(nombreFichero);
 			
 			ArrayList<ArrayList<Integer>> l = f.ejecutarLeerColeccionListasEnteros();
-			f.ejecutarGuardarColeccionListasEnteros(l, nombreFicheroOut);
+			f.ejecutarGuardarColeccionListasEnteros(l, nombreFicheroOut);	
 			
 			System.out.println(l.toString());
-			//ArrayList<Integer> l = f.leerListaEnteros();
-			
-			//System.out.println(current);
-
-		
-		
 	}
 	@Override
 	public void setFinDeLinea(int finDeLine) {
@@ -144,5 +133,44 @@ public class Fichero implements IFichero{
 		}
 		return current + "/src/es/tfg/ficheros/datos/";
 	}
-	
+	@Override
+	public void abrirFicheroOut(String nombreFichOut) {
+		try {
+			this.ficheroOut = new FileWriter(getCurrentPath() + nombreFichOut);
+
+		} catch (Exception ex) {
+			System.out.println("Mensaje de la excepción: (abrirFicheroOut) " + ex.getMessage());
+		}
+		
+	}
+	@Override
+	public void cerrarFicheroOut() {
+		try {
+			this.ficheroOut.close();
+		} catch (IOException e) {
+			System.out.println("Mensaje de la excepción: (cerrarFicheroOut) " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void escribirFila(String linea) {
+		try {
+			this.ficheroOut.write(linea + "\n");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void abrirFicheroIn(String nombreFichIn) throws FileNotFoundException {
+		this.in = new Scanner(this.ficheroIn);
+	}
+	@Override
+	public void cerrarFicheroIn() {
+		this.in.close();
+	}
+	@Override
+	public Scanner getScanner() {
+		// TODO Auto-generated method stub
+		return this.in;
+	}
 }
