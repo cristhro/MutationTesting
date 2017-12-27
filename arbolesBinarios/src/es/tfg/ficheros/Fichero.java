@@ -161,8 +161,13 @@ public class Fichero implements IFichero{
 		}
 	}
 	@Override
-	public void abrirFicheroIn(String nombreFichIn) throws FileNotFoundException {
-		this.in = new Scanner(this.ficheroIn);
+	public void abrirFicheroIn(){
+		try {
+			this.in = new Scanner(this.ficheroIn);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public void cerrarFicheroIn() {

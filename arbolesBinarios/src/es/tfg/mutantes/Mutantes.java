@@ -14,7 +14,6 @@ public class Mutantes  implements IMutantes{
 	//genero dos ficheros: fichero1 , fichero2
 	 private ArrayList<LinkedList<Integer> > conjuntoMutantes = new ArrayList<LinkedList<Integer>>();
 	 private LinkedList<Integer> listaValores =new LinkedList<Integer>();
-	 private String nombreFich = "ficheroOut.txt";
 	 
 	 public Mutantes() {
 		super();
@@ -26,8 +25,11 @@ public class Mutantes  implements IMutantes{
 		listaValores.add(6);
 		listaValores.add(7);
 		listaValores.add(8);
-		listaValores.add(9);
-		listaValores.add(10);
+	}
+	
+	 public Mutantes(LinkedList<Integer> listaValores) {
+			super();
+			this.listaValores = listaValores;
 	}
 	
 	private ArrayList<LinkedList<Integer>> getMutantes(LinkedList<Integer> list){
@@ -103,7 +105,7 @@ public class Mutantes  implements IMutantes{
 	}
 	public static void main(String[] args) {
 		Mutantes mutantes = new Mutantes();
-		mutantes.generarFicheroMutantes("pepito.txt");
+		mutantes.generarFicheroMutantes("mutantes.txt");
 	}
 
 }

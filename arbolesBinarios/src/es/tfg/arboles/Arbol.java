@@ -32,6 +32,11 @@ public class Arbol {
 	    this.nodoRaiz = arrayToArbolBinario(arr, 0, arr.size() - 1);
 	    asignarCaminosRec (this.nodoRaiz);
     }
+    public Arbol( ArrayList<Integer> arr ) {
+		this();
+	    this.nodoRaiz = arrayToArbolBinario(arr, 0, arr.size() - 1);
+	    asignarCaminosRec (this.nodoRaiz);
+    }
     public Arbol( int profundidad ) {
         this();
         //int numHojas =  (int) Math.pow(2, profundidad);
@@ -47,6 +52,22 @@ public class Arbol {
         /* Obtenemos el punto medio y lo convertimos en nodo */
         int mid = (start + end) / 2;
         Nodo node = new Nodo(new Datos(mid, arr[mid]));
+
+        node.setNodoIzq( arrayToArbolBinario(arr, start, mid - 1));
+        node.setNodoDer(arrayToArbolBinario(arr, mid + 1, end));
+
+        return node;
+    }
+    private Nodo arrayToArbolBinario(ArrayList<Integer> arr, int start, int end) {
+
+        /* Caso base */
+        if (start > end) {
+            return null;
+        }
+
+        /* Obtenemos el punto medio y lo convertimos en nodo */
+        int mid = (start + end) / 2;
+        Nodo node = new Nodo(new Datos(mid, arr.get(mid)));
 
         node.setNodoIzq( arrayToArbolBinario(arr, start, mid - 1));
         node.setNodoDer(arrayToArbolBinario(arr, mid + 1, end));

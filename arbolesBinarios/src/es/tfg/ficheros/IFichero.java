@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public interface IFichero {
-	public void abrirFicheroIn(String nombreFichIn) throws FileNotFoundException;
+	public void abrirFicheroIn() ;
 	public void cerrarFicheroIn();
 	public int leerEntero(Scanner in);
 	public void setFinDeLinea(int finDeLine);

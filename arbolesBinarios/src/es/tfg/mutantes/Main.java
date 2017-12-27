@@ -1,4 +1,5 @@
 package es.tfg.mutantes;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -8,32 +9,42 @@ import java.util.LinkedList;
 import es.tfg.arboles.Arbol;
 import es.tfg.arboles.Datos;
 import es.tfg.arboles.Tools;
+import es.tfg.ficheros.Fichero;
 
 public class Main {
 
     public static void main (String [ ] args) {
-        // 6 Obtener colleccion de arboles mutantes
-    		Mutantes mutantes = new Mutantes();
+    		String nombreFich = "mutantes2.txt";
     		
-    		// Obtenemos los arboles mutados
-    		ArrayList<LinkedList<Integer>> coleccionListasMutantes = mutantes.generarColeccionListasMutantes();
-        ArrayList<Arbol> coleccionArboles = mutantes.getColeccionArbolMutantes(coleccionListasMutantes);
-		
+    		// Conjunto de datos que van a permutar
+    		LinkedList<Integer> conjunto = new LinkedList<Integer>();
+    		conjunto.add(1);
+    		conjunto.add(2);
+    		conjunto.add(3);
+    		conjunto.add(4);
+    		conjunto.add(5);
+    		
+    		Mutantes mutantes = new Mutantes(conjunto);
+    		
+    		// Generamos el fichero de los mutantes
+    		mutantes.generarFicheroMutantes(nombreFich);
+    		
         // calcular las estadisticas
-        Integer  numKilled = 1, numTotalMutantes = coleccionArboles.size() ;
-        
-        System.out.println(coleccionListasMutantes);
-		// Obtenemos arbol correcto (este es con el que vamos a comparar)
-		Arbol arbolCorrecto = coleccionArboles.remove(0);
+        Integer  numKilled = 1, numTotalMutantes = 0 ;
+      
+        // Obtenemos el arbol correcto del fichero
+        Fichero fichero = new Fichero(nombreFich);
+        fichero.abrirFicheroIn();
+		Arbol arbolCorrecto = new Arbol(fichero.leerListaEnteros(fichero.getScanner()));
+		fichero.cerrarFicheroIn();
 		
+		// Conjunto de inputs y outPuts del arbol correcto
 		HashMap<Integer,ArrayList<ArrayList<Integer>>> conjuntoOutputs  = arbolCorrecto.getCaminosOutputs();
-		HashMap<Integer,ArrayList<ArrayList<Integer>>> caminosInput  = arbolCorrecto.getCaminosInputs();
-       
-        // Obtenemos la coleccion de los inputs
         HashMap<Integer,ArrayList<ArrayList<Integer>>> conjuntoInputs = arbolCorrecto.getCaminosInputs();
 
         // Recorremos los niveles
-        for (int niveli = 1; niveli <= caminosInput.size(); niveli++) {
+        for (int niveli = 1; niveli <= conjuntoInputs.size(); niveli++) {
+        	
         	 	// Recorremos los inputs de todos los niveles
         		ArrayList<ArrayList<Integer>> listaInputsNivel = conjuntoInputs.get(niveli);
 			for (ArrayList<Integer> inputNivel : listaInputsNivel) {
@@ -41,23 +52,32 @@ public class Main {
 	        		// Obtenemos el outputOriginal
 	        	 	ArrayList<Integer> outputsOriginal = arbolCorrecto.getOutputs(inputNivel);
 	        	 	
-	        	 	// Recorremos la coleccion de arboles mutantes
-	            for (Arbol arbol : coleccionArboles) {
-	                	 ArrayList<Integer> outPutArbol = arbol.getOutputs(inputNivel);
+	        	 	// Recorremos la coleccion de arboles mutantes del fichero
+	        	 	fichero.abrirFicheroIn();
+	        	 	while (fichero.getScanner().hasNextInt()) {
+	        	 		Arbol arbol = new Arbol(fichero.leerListaEnteros(fichero.getScanner()));
+	        	 		
+	        	 		ArrayList<Integer> outPutArbol = arbol.getOutputs(inputNivel);
 	                	 if(!arbol.isKilled()) {
 		        			if (!outPutArbol.equals(outputsOriginal)){
 		        					numKilled++;
 		        					arbol.setKilled(true);			
 		        			}
 	                	 }
-	        		}
+	                	 
+	                	 numTotalMutantes ++;
+	        	 	}
+	        	 	fichero.cerrarFicheroIn();
 			}
 			
 			// fin nivel
+			System.out.println("Nivel < " + niveli + " >");
 			Integer numSobreviven = numTotalMutantes - numKilled ;
 	        System.out.println("Total mutantes: " + numTotalMutantes );
 	        System.out.println("Sobreviven: " + numSobreviven );
 	        System.out.println("Mueren: " + numKilled);
-        }  
+        } 
+        
+        fichero.cerrarFicheroIn();
    }    
 }
