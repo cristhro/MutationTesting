@@ -155,7 +155,7 @@ public class Fichero implements IFichero{
 	@Override
 	public void escribirFila(String linea) {
 		try {
-			this.ficheroOut.write(linea + "\n");
+			this.ficheroOut.write(linea + this.finDeLinea + " \n");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

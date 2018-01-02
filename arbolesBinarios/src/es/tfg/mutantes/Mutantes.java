@@ -13,7 +13,7 @@ public class Mutantes  implements IMutantes{
 	
 	//genero dos ficheros: fichero1 , fichero2
 	 private ArrayList<LinkedList<Integer> > conjuntoMutantes = new ArrayList<LinkedList<Integer>>();
-	 private LinkedList<Integer> listaValores =new LinkedList<Integer>();
+	 private LinkedList<Integer> listaValores = new LinkedList<Integer>();
 	 
 	 public Mutantes() {
 		super();
@@ -51,7 +51,7 @@ public class Mutantes  implements IMutantes{
 	private void getMutantes(String a, LinkedList<Integer> conjunto, Fichero fichero) {
         if (conjunto.size()==1)
         {
-        		String linea = a+ " " +conjunto.get(0) + " -1 ";
+        		String linea = a+ " " +conjunto.get(0);
         		fichero.escribirFila(linea);
         }
         for (int i=0;i<conjunto.size();i++)

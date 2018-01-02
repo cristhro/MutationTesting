@@ -1,5 +1,6 @@
 package es.tfg.mutantes;
 import java.io.File;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -15,25 +16,26 @@ public class Main {
 
     public static void main (String [ ] args) {
     		String nombreFich = "mutantes2.txt";
+    	    Fichero fichero = new Fichero(nombreFich);
     		
-    		// Conjunto de datos que van a permutar
+    	    // Conjunto de datos que van a permutar
     		LinkedList<Integer> conjunto = new LinkedList<Integer>();
-    		conjunto.add(1);
-    		conjunto.add(2);
-    		conjunto.add(3);
-    		conjunto.add(4);
-    		conjunto.add(5);
+    		
+    		for (int i = 1; i < 4; i++) {
+    			conjunto.add(i);
+		}
     		
     		Mutantes mutantes = new Mutantes(conjunto);
-    		
+  
     		// Generamos el fichero de los mutantes
     		mutantes.generarFicheroMutantes(nombreFich);
+
     		
         // calcular las estadisticas
         Integer  numKilled = 1, numTotalMutantes = 0 ;
       
         // Obtenemos el arbol correcto del fichero
-        Fichero fichero = new Fichero(nombreFich);
+   
         fichero.abrirFicheroIn();
 		Arbol arbolCorrecto = new Arbol(fichero.leerListaEnteros(fichero.getScanner()));
 		fichero.cerrarFicheroIn();
@@ -79,5 +81,7 @@ public class Main {
         } 
         
         fichero.cerrarFicheroIn();
+        
    }    
+   
 }
