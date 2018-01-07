@@ -33,6 +33,10 @@ public class Fichero implements IFichero{
 	public int leerEntero(Scanner in) {
 		return in.nextInt();
 	}
+	@Override
+	public Double leerDouble(Scanner in) {
+		return in.nextDouble();
+	}
 
 	/*
 	 * Precondicion que el 'scanner' este instanciado.
@@ -45,7 +49,7 @@ public class Fichero implements IFichero{
 			int entero = leerEntero(in);
 			
 			while(entero != this.finDeLinea) {
-				if (entero != -1) {
+				if (entero != this.finDeLinea) {
 					lista.add(entero);
 				}
 				// Leo el siguiente entero	
@@ -54,7 +58,23 @@ public class Fichero implements IFichero{
 			
 		return lista;
 	}
+	@Override
+	public ArrayList<Double> leerListaDoubles(Scanner in) {
+		ArrayList<Double> lista = new ArrayList<Double>();
 
+		// Leemos los doubles
+		Double entero = leerDouble(in);
+		
+		while(entero != this.finDeLinea) {
+			if (entero != this.finDeLinea) {
+				lista.add(entero);
+			}
+			// Leo el siguiente double	
+			entero = leerDouble(in);
+		}
+		
+	return lista;
+	}
 	@Override
 	public ArrayList<ArrayList<Integer>> ejecutarLeerColeccionListasEnteros() {
 		ArrayList<ArrayList<Integer>> coleccionListas = new ArrayList<ArrayList<Integer>>();
@@ -87,14 +107,22 @@ public class Fichero implements IFichero{
 	
 	public static void main(String[] args) {
 	
-			String nombreFichero = "fichero.txt";
+			String nombreFichero = "jonathan.txt";
 			String nombreFicheroOut = "fichero4.txt";
 			Fichero f = new Fichero(nombreFichero);
 			
-			ArrayList<ArrayList<Integer>> l = f.ejecutarLeerColeccionListasEnteros();
-			f.ejecutarGuardarColeccionListasEnteros(l, nombreFicheroOut);	
+			f.abrirFicheroIn();
+			double d = f.leerDouble(f.getScanner());
+			ArrayList<Integer> mutanteFichero = f.leerListaEnteros(f.getScanner());
+		
+			f.cerrarFicheroIn();
+			System.out.println(d);
+			System.out.println(mutanteFichero);
+			f.cerrarFicheroIn();
+			//ArrayList<ArrayList<Integer>> l = f.ejecutarLeerColeccionListasEnteros();
+			//f.ejecutarGuardarColeccionListasEnteros(l, nombreFicheroOut);	
 			
-			System.out.println(l.toString());
+			//System.out.println(d);
 	}
 	@Override
 	public void setFinDeLinea(int finDeLine) {
@@ -178,4 +206,6 @@ public class Fichero implements IFichero{
 		// TODO Auto-generated method stub
 		return this.in;
 	}
+	
+	
 }

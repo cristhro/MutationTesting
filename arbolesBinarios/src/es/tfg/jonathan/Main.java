@@ -22,10 +22,10 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// Atributos para gestionar el fichero
-   		String nombreFich = "mutantes.txt";
+   		String nombreFich = "jonathan3.txt";
 	    Fichero fichero = new Fichero(nombreFich);
 	    String lineaFichero = "";
-	    
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduzca el n�mero de niveles que tendr� su �rbol: ");
 		int numNiveles = sc.nextInt();
@@ -49,23 +49,24 @@ public class Main {
 		}
 		
 		// Actualizamos el peso del mutante en la primera posicion
-		mutante.add(0, (int) peso);
+		//mutante.add(0, (int) peso);
 		// A modo de prueba, se imprimen ambos arrays y el peso total del mutante
 		System.out.println("Array Origen: ");
-		for(int i = 0; i < numNodos; i++)
+		for(int i = 1; i < numNodos; i++)
 			System.out.print(" " + origen.get(i) + " ");
 		
 		System.out.println("");
 		
 		System.out.println("Array Mutante: ");
-		for(int i = 0; i < numNodos; i++) {
+		
+		lineaFichero += ""+ Double.toString(peso).replace('.', ',') +" ";
+		for(int i = 1; i < numNodos; i++) {
 			System.out.print(" " + mutante.get(i) + " ");
 			lineaFichero += " " + mutante.get(i) + " "; 
 		}
 		
 		
 		System.out.println("");
-		
 		System.out.println("Peso del mutante: " + peso);
 		
 		
@@ -75,11 +76,13 @@ public class Main {
 		fichero.cerrarFicheroOut();
 		
 		// Leer fichero
-	    fichero.abrirFicheroIn();
-	    ArrayList<Integer> mutanteFichero = fichero.leerListaEnteros(fichero.getScanner());
+		fichero.abrirFicheroIn();
+		double pesoFichero = fichero.leerDouble(fichero.getScanner());
+		ArrayList<Integer> mutanteFichero = fichero.leerListaEnteros(fichero.getScanner());
+	
 		fichero.cerrarFicheroIn();
-		
-		System.out.println(mutanteFichero.toString());
+		System.out.println(pesoFichero);
+		System.out.println(mutanteFichero);
 		
 	}
 	
