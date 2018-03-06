@@ -1,5 +1,7 @@
 package claseNodo.personaje;
 
+import java.util.Arrays;
+
 import claseNodo.Coche;
 import claseNodo.House;
 
@@ -37,4 +39,14 @@ public class ClaseBaja extends Persona{
 		return 0;
 	}
 
+	@Override
+	public String toString() {
+		return "ClaseBaja [house=" + Arrays.toString(house) + ", getHouse()=" + Arrays.toString(getHouse())
+				+ ", getNumHouse()=" + getNumHouse() + ", getCoche()=" + Arrays.toString(getCoche())
+				+ ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre() + ", getApellidos()="
+				+ getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()=" + isCasado() + ", getDni()=" + getDni()
+				+ "]";
+	}
+
+	
 }

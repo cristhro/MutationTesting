@@ -45,4 +45,13 @@ public class Rectangulo implements Figura2D {
 		this.ladoLargo = ladoLargo;
 	}
 
+	@Override
+	public String toString() {
+		return "Rectangulo [ladoCorto=" + ladoCorto + ", ladoLargo=" + ladoLargo + ", getArea2D()=" + getArea2D()
+				+ ", perimetro()=" + perimetro() + ", getLadoCorto()=" + getLadoCorto() + ", getLadoLargo()="
+				+ getLadoLargo() + "]";
+	}
+	
+	
+
 }

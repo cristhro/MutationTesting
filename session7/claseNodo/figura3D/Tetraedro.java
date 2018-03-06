@@ -32,4 +32,12 @@ public class Tetraedro implements Figura3D  {
 		return rectangulo;
 	}
 
+	@Override
+	public String toString() {
+		return "Tetraedro [rectangulo=" + rectangulo + ", altura=" + altura + ", getArea3D()=" + getArea3D()
+				+ ", getAltura()=" + getAltura() + ", getVolumen()=" + getVolumen() + ", getFiguraBase()="
+				+ getFiguraBase() +  "]";
+	}
+
+	
 }

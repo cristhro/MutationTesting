@@ -8,10 +8,7 @@ public class Posicion {
 		this.x = x;
 		this.y = y;
 	}
-	@Override
-	public String toString() {
-		return "Posicion [x=" + x + ", y=" + y + "]";
-	}
+	
 	public int getX() {
 		return x;
 	}
@@ -23,6 +20,11 @@ public class Posicion {
 	}
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	@Override
+	public String toString() {
+		return "Posicion [x=" + x + ", y=" + y + ", getX()=" + getX() + ", getY()=" + getY() + "]";
 	}
 	
 }

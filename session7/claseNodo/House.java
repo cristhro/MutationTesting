@@ -1,5 +1,7 @@
 package claseNodo;
 
+import java.util.Arrays;
+
 import claseNodo.figura3D.Figura3D;
 
 public class House implements Direccion {
@@ -52,6 +54,16 @@ public class House implements Direccion {
 		this.dir = dir;
 	}
 
-	
 
+
+	@Override
+	public String toString() {
+		return "House [figura3D=" + Arrays.toString(figura3D) + ", posicion=" + posicion + ", dir=" + dir
+				+ ", getPos()=" + getPos() + ", getNomDir()=" + getNomDir() + ", getFigura3D()="
+				+ Arrays.toString(getFigura3D()) + ", getPosicion()=" + getPosicion() + ", getDir()=" + getDir()
+				+ "]";
+	}
+
+	
+	
 }

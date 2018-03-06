@@ -33,6 +33,12 @@ public class Circulo implements FiguraEsferica2D, Figura{
 		// TODO Auto-generated method stub
 		return Math.PI*Math.pow(radio, 2);
 	}
+	@Override
+	public String toString() {
+		return "Circulo [radio=" + radio + ", getRadio()=" + getRadio() + ", getArea()=" + getArea() + ", perimetro()="
+				+ perimetro() + "]";
+	}
+	
 	
 	
 }

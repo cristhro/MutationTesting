@@ -34,6 +34,12 @@ public class Triangulo implements Figura2D{
 		return lateralIz+lateralDer+ladoBase;
 	}
 
+	@Override
+	public String toString() {
+		return "Triangulo [ladoBase=" + ladoBase + ", altura=" + altura + ", lateralIz=" + lateralIz + ", lateralDer="
+				+ lateralDer + ", getArea2D()=" + getArea2D() + ", perimetro()=" + perimetro() + "]";
+	}
+
 
 	
 }

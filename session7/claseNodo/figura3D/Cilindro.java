@@ -41,6 +41,13 @@ public class Cilindro implements Figura3D {
 		// TODO Auto-generated method stub
 		return c;
 	}
+
+	@Override
+	public String toString() {
+		return "Cilindro [c=" + c + ", altura=" + altura + ", getArea3D()=" + getArea3D() + ", getAltura()="
+				+ getAltura() + ", getVolumen()=" + getVolumen() + ", getFiguraBase()=" + getFiguraBase()
+				+  "]";
+	}
 	
 
 

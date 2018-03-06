@@ -41,5 +41,11 @@ public class Esfera implements Figura3D{
 		return c;
 	}
 
+	@Override
+	public String toString() {
+		return "Esfera [c=" + c + ", getArea3D()=" + getArea3D() + ", getAltura()=" + getAltura() + ", getVolumen()="
+				+ getVolumen() + ", getFiguraBase()=" + getFiguraBase() + "]";
+	}
+
 
 }

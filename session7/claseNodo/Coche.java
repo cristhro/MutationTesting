@@ -1,5 +1,7 @@
 package claseNodo;
 
+import java.util.Arrays;
+
 import claseNodo.figura2D.*;
 import claseNodo.figura3D.Cubo;
 
@@ -10,6 +12,7 @@ public class Coche {
 	private String color;
 	private int matricula;
 	private String marca;
+	
 	
 	public Coche(Circulo[] rueda, Cuadrado[] sillas, Cubo cuerpo, String color, int matricula) {
 		super();
@@ -76,4 +79,14 @@ public class Coche {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
+	
+	@Override
+	public String toString() {
+		return "Coche [rueda=" + Arrays.toString(rueda) + ", sillas=" + Arrays.toString(sillas) + ", cuerpo=" + cuerpo
+				+ ", color=" + color + ", matricula=" + matricula + ", marca=" + marca + ", getRueda()="
+				+ Arrays.toString(getRueda()) + ", getSillas()=" + Arrays.toString(getSillas()) + ", getCuerpo()="
+				+ getCuerpo() + ", getColor()=" + getColor() + ", getMatricula()=" + getMatricula() + ", getMarca()="
+				+ getMarca() +  "]";
+	}
+
 }

@@ -1,6 +1,7 @@
 package claseNodo.figura2D;
 
 public class Cuadrado implements Figura2D {
+	
 	private double lado=0;
 	
 	
@@ -32,6 +33,12 @@ public class Cuadrado implements Figura2D {
 	public double perimetro() {
 		// TODO Auto-generated method stub
 		return this.lado*4;
+	}
+
+	@Override
+	public String toString() {
+		return "Cuadrado [lado=" + lado + ", getLado()=" + getLado() + ", getArea2D()=" + getArea2D() + ", perimetro()="
+				+ perimetro() + "]";
 	}
 
 }

@@ -39,5 +39,12 @@ public class Cubo implements Figura3D{
 		// TODO Auto-generated method stub
 		return cuadrado;
 	}
+	@Override
+	public String toString() {
+		return "Cubo [altura=" + altura + ", cuadrado=" + cuadrado + ", getArea3D()=" + getArea3D() + ", getAltura()="
+				+ getAltura() + ", getVolumen()=" + getVolumen() + ", getFiguraBase()=" + getFiguraBase()
+				+ "]";
+	}
 
+	
 }
