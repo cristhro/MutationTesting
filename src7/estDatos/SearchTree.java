@@ -150,7 +150,7 @@ public class SearchTree<E> implements ABB<E> {
 
 	public E label () {
 		if (this.isEmpty()) {
-			throw new IllegalStateException("Ã�rbol vacÃ­o");
+			throw new IllegalStateException("Arbol vacio");
 		}
 		
 		return this.label;
