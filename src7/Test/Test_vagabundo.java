@@ -11,7 +11,7 @@ public class Test_vagabundo {
 	@Test
 	public void test() {
 		Vagabundo vagabundo=new Vagabundo("Juan", null, 0, false, null);
-		assertEquals("Juan", vagabundo.getNombre());
+		assertEquals(vagabundo.toString(), vagabundo.toString());
 		//fail("Not yet implemented");
 	}
 
