@@ -6,13 +6,12 @@ import claseNodo.Coche;
 import claseNodo.House;
 
 public class ClaseBaja extends Persona{
-	private House[] house=null;
+	private House[] house=new House[1];
 	private Coche[] coche=null;
 	
 
 	public ClaseBaja(House h, String nombre, String apellidos, int edad, boolean casado, String dni) {
 		super(nombre, apellidos, edad, casado, dni);
-		this.house= new House[0];
 		house[0]=h;
 		// TODO Auto-generated constructor stub
 	}   

@@ -33,7 +33,7 @@ public class Esfera implements Figura3D{
 	
 	public double getVolumen() {
 		// TODO Auto-generated method stub
-		return 4.0/3.0*Math.PI*Math.pow(this.getRadio(), 3);
+		return 4.0/3.0*((int)Math.PI*Math.pow(this.getRadio(), 3));
 	}
 
 	
@@ -45,7 +45,7 @@ public class Esfera implements Figura3D{
 	@Override
 	public String toString() {
 		return "Esfera [radio=" + radio + ", getArea3D()=" + getArea3D() + ", getAltura()=" + getAltura()
-				+ ", getVolumen()=" + getVolumen() + ", getRadio()=" + getRadio() + ", toString()=" + super.toString() + "]";
+				+ ", getVolumen()=" + getVolumen() + ", getRadio()=" + getRadio() + "]";
 	}
 
 	@Override
