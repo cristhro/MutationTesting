@@ -3,49 +3,65 @@ package claseNodo.figura3D;
 import claseNodo.figura2D.Circulo;
 
 public class Esfera implements Figura3D{
-	Circulo c;
+	private double radio;
 
 	
 
-	public Esfera(Circulo c) {
+	public Esfera(double i) {
 		super();
-		this.c = c;
+		this.radio=i;
+		
 	}
 	
 	public Esfera(Esfera e) {
 		super();
-		this.c = e.c;
+		this.radio = e.radio;
 	}
 	
 	
 	public double getArea3D() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 4*Math.PI*radio;
 	}
 
 	
 	public double getAltura() {
 		// TODO Auto-generated method stub
-		return c.getRadio()*2;
+		return getRadio()*2;
 	}
 
 	
 	public double getVolumen() {
 		// TODO Auto-generated method stub
-		return 4.0/3.0*Math.PI*Math.pow(c.getRadio(), 3);
+		return 4.0/3.0*Math.PI*Math.pow(this.getRadio(), 3);
 	}
 
 	
-	public Circulo getFiguraBase() {
+	public double getRadio() {
 		// TODO Auto-generated method stub
-		return c;
+		return this.radio; 
+	}
+
+	@Override
+	public String toString() {
+		return "Esfera [radio=" + radio + ", getArea3D()=" + getArea3D() + ", getAltura()=" + getAltura()
+				+ ", getVolumen()=" + getVolumen() + ", getRadio()=" + getRadio() + ", toString()=" + super.toString() + "]";
+	}
+
+	@Override
+	public <T> T getFiguraBase() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Double setRadio(double i) {
+		// TODO Auto-generated method stub
+		this.radio=i;
+		return this.radio;
 	}
 
 	
-	public String toString() {
-		return "Esfera [c=" + c + ", getArea3D()=" + getArea3D() + ", getAltura()=" + getAltura() + ", getVolumen()="
-				+ getVolumen() + ", getFiguraBase()=" + getFiguraBase() + "]";
-	}
+	
 
 
 }

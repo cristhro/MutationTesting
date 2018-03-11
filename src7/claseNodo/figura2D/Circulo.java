@@ -13,8 +13,14 @@ public class Circulo implements FiguraEsferica2D, Figura{
 		this.radio = radio;
 	}
 
-	public void setRadio(double radio) {
-		this.radio = radio;
+	public double setRadio(double radio) {
+		if(radio > 6) {
+			this.radio = radio;
+			return radio;
+		}else {
+			return -1;
+		}
+		
 	}
 	
 	public double getRadio() {
@@ -25,14 +31,24 @@ public class Circulo implements FiguraEsferica2D, Figura{
 	
 	public double getArea() {
 		// TODO Auto-generated method stub
-		return 2*Math.PI*radio;
+		if(this.radio>0) {
+			return 2*Math.PI*radio;
+		}else {
+			return -1;
+		}
 	}
 
 	
 	public double perimetro() {
 		// TODO Auto-generated method stub
-		return Math.PI*Math.pow(radio, 2);
+		if(radio>0) {
+			return Math.PI*Math.pow(radio, 2);
+		}else {
+			return -1;
+		}
+		
 	}
+	
 	
 	public String toString() {
 		return "Circulo [radio=" + radio + ", getRadio()=" + getRadio() + ", getArea()=" + getArea() + ", perimetro()="

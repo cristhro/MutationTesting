@@ -1,11 +1,9 @@
 package claseNodo.personaje;
 
-import claseNodo.House;
-
 public abstract class Persona implements Propiedad{
 	private String nombre;// Nombre de cada objeto persona
     private String apellidos;// Apellidos de cada objeto persona
-    private int edad;// Edad de cada objeto persona
+    private int edad=0;// Edad de cada objeto persona
     private boolean casado;// Casado ( verdadero o falso (si/no)) de cada objeto persona
     private String dni;// DNI de cada objeto persona
     

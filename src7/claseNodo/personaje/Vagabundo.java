@@ -6,6 +6,8 @@ import claseNodo.Coche;
 import claseNodo.House;
 
 public class Vagabundo extends Persona{
+	private House[] houses=null;
+	private Coche[] coche=null;
 
 	public Vagabundo(String nombre, String apellidos, int edad, boolean casado, String dni) {
 		super(nombre, apellidos, edad, casado, dni);

@@ -40,6 +40,30 @@ public class ClaseAlta extends Persona{
 		return coches.length;
 	}
 
+	public House[] addHouse(House nueva) {
+		House[] tmp=new House[this.houses.length+1];
+		for(int i=0;i<this.houses.length;i++) {
+			tmp[i]=houses[i];
+		}
+		
+		tmp[tmp.length-1]=nueva;
+		this.houses=tmp;
+		
+		return this.houses;
+	}
+	
+	public Coche[] addCoche(Coche nueva) {
+		Coche[] tmp=new Coche[this.houses.length+1];
+		for(int i=0;i<this.houses.length;i++) {
+			tmp[i]=coches[i];
+		}
+		
+		tmp[tmp.length-1]=nueva;
+		this.coches=tmp;
+		
+		return this.coches;
+	}
+	
 	
 	public String toString() {
 		return "ClaseAlta [houses=" + Arrays.toString(houses) + ", coches=" + Arrays.toString(coches) + ", getHouse()="

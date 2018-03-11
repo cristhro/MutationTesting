@@ -16,6 +16,23 @@ public class ClaseMedia extends Persona{
 		// TODO Auto-generated constructor stub
 	}
 
+	public String setHouse(House nuevo) {
+		if(nuevo!=null) {
+			if(house!=null && house[0]!=null) {
+				this.house[0]=nuevo;
+				return this.house[0].toString();
+			}else {
+				return "no ha sido poder construir una casa";
+			}
+			
+		}else {
+			if(house!=null && house[0]!=null) {
+				return this.house[0].toString();
+			}else {
+				return "no ha sido poder construir una casa";
+			}
+		}
+	}
 	
 	public House[] getHouse() {
 		// TODO Auto-generated method stub
@@ -47,6 +64,25 @@ public class ClaseMedia extends Persona{
 				+ Arrays.toString(getCoche()) + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
 				+ ", getApellidos()=" + getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()=" + isCasado()
 				+ ", getDni()=" + getDni() + "]";
+	}
+
+	public String setCoche(Coche coche2) {
+		// TODO Auto-generated method stub
+		if(coche2!=null) {
+			if(this.coche!=null && this.coche[0]!=null) {
+				return this.coche[0].toString();
+			}else {
+				return "no tiene coche";
+			}
+		}else {
+			if(this.coche!=null && this.coche[0]!=null) {
+				this.coche[0]=coche2;
+				return this.coche[0].toString();
+			}else {
+				return "no tiene coche";
+			}
+		}
+	
 	}
 
 	

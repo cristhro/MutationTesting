@@ -19,8 +19,13 @@ public class Cuadrado implements Figura2D {
 		return lado;
 	}
 
-	public void setLado(double lado) {
-		this.lado = lado;
+	public double setLado(double lado) {
+		if(lado >0) {
+			this.lado=lado;
+			return this.lado;
+		}else {
+			return -1;
+		}
 	}
 
 	

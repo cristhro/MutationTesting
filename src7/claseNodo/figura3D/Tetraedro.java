@@ -7,8 +7,14 @@ public class Tetraedro implements Figura3D  {
 	private Rectangulo rectangulo;
 	private double altura=0;
 	
-
 	
+	public Tetraedro(Rectangulo rectangulo, double altura) {
+		super();
+		this.rectangulo = rectangulo;
+		this.altura = altura;
+	}
+
+
 	public double getArea3D() {
 		// TODO Auto-generated method stub
 		return 4*rectangulo.getArea2D();
@@ -37,6 +43,13 @@ public class Tetraedro implements Figura3D  {
 		return "Tetraedro [rectangulo=" + rectangulo + ", altura=" + altura + ", getArea3D()=" + getArea3D()
 				+ ", getAltura()=" + getAltura() + ", getVolumen()=" + getVolumen() + ", getFiguraBase()="
 				+ getFiguraBase() +  "]";
+	}
+
+
+	public double setAltura(double i) {
+		// TODO Auto-generated method stub
+		altura=i;
+		return altura;
 	}
 
 	

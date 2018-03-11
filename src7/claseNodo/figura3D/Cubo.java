@@ -10,7 +10,7 @@ public class Cubo implements Figura3D{
 		this.altura=c.altura;
 		this.cuadrado=c.cuadrado;
 	}
-	public Cubo(double altura, Cuadrado cuadrado) {
+	public Cubo(Cuadrado cuadrado, double altura) {
 		super();
 		this.altura = altura;
 		this.cuadrado = cuadrado;
@@ -44,6 +44,15 @@ public class Cubo implements Figura3D{
 		return "Cubo [altura=" + altura + ", cuadrado=" + cuadrado + ", getArea3D()=" + getArea3D() + ", getAltura()="
 				+ getAltura() + ", getVolumen()=" + getVolumen() + ", getFiguraBase()=" + getFiguraBase()
 				+ "]";
+	}
+	public double setAltura(double i) {
+		// TODO Auto-generated method stub
+		if(i<0) {
+			return this.altura;
+		}else {
+			this.altura=i;
+			return this.altura;
+		}
 	}
 
 	
