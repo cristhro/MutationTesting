@@ -29,9 +29,9 @@ public class Vagabundo extends Persona{
 	}
 
 	
-	public Coche[] getCoche() {
+	public String getCoche() {
 		// TODO Auto-generated method stub
-		return null;
+		return "no tiene coches";
 	}
 
 	
@@ -45,7 +45,7 @@ public class Vagabundo extends Persona{
 	
 	public String toString() {
 		return "Vagabundo [getHouse()=" + getHouse() + ", getNumHouse()=" + getNumHouse()
-				+ ", getCoche()=" + Arrays.toString(getCoche()) + ", getNumCoche()=" + getNumCoche() + ", getNombre()="
+				+ ", getCoche()=" + getCoche() + ", getNumCoche()=" + getNumCoche() + ", getNombre()="
 				+ getNombre() + ", getApellidos()=" + getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()="
 				+ isCasado() + ", getDni()=" + getDni() + "]";
 	}

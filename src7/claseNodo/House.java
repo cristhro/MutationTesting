@@ -30,8 +30,8 @@ public class House implements Direccion {
 		return dir;
 	}
 
-	public Figura3D[] getFigura3D() {
-		return figura3D;
+	public String getFigura3D() {
+		return figura3D.toString();
 	}
 
 	public void setFigura3D(Figura3D[] figura3d) {
@@ -56,11 +56,11 @@ public class House implements Direccion {
 
 
 
-	
+	@Override
 	public String toString() {
 		return "House [figura3D=" + Arrays.toString(figura3D) + ", posicion=" + posicion + ", dir=" + dir
 				+ ", getPos()=" + getPos() + ", getNomDir()=" + getNomDir() + ", getFigura3D()="
-				+ Arrays.toString(getFigura3D()) + ", getPosicion()=" + getPosicion() + ", getDir()=" + getDir()
+				+ getFigura3D() + ", getPosicion()=" + getPosicion() + ", getDir()=" + getDir()
 				+ "]";
 	}
 

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import claseNodo.Coche;
 import claseNodo.House;
+import claseNodo.Imprimir;
 
 public class ClaseMedia extends Persona{
 	private House[] house=new House[1];
@@ -36,7 +37,11 @@ public class ClaseMedia extends Persona{
 	
 	public String getHouse() {
 		// TODO Auto-generated method stub
-		return house.toString();
+		String s="";
+		for(int i=0; i<house.length;i++) {
+			s+=house[i].toString();
+		}
+		return s;
 	}
 
 	
@@ -46,9 +51,13 @@ public class ClaseMedia extends Persona{
 	}
 
 	
-	public Coche[] getCoche() {
+	public String getCoche() {
 		// TODO Auto-generated method stub
-		return coche;
+		String s="";
+		for(int i=0; i<coche.length;i++) {
+			s+=coche[i].toString();
+		}
+		return s;
 	}
 
 	
@@ -61,7 +70,7 @@ public class ClaseMedia extends Persona{
 	public String toString() {
 		return "ClaseMedia [house=" + Arrays.toString(house) + ", coche=" + Arrays.toString(coche) + ", getHouse()="
 				+ getHouse() + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
-				+ Arrays.toString(getCoche()) + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
+				+ getCoche() + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
 				+ ", getApellidos()=" + getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()=" + isCasado()
 				+ ", getDni()=" + getDni() + "]";
 	}

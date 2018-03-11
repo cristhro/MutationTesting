@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import claseNodo.Coche;
 import claseNodo.House;
+import claseNodo.Imprimir;
 
 public class ClaseBaja extends Persona{
 	private House[] house=new House[1];
@@ -19,7 +20,11 @@ public class ClaseBaja extends Persona{
 	@Override
 	public String getHouse() {
 		// TODO Auto-generated method stub
-		return house.toString();
+		String s="";
+		for(int i=0; i<house.length;i++) {
+			s+=house[i];
+		}
+		return s;
 	}
 
 	
@@ -30,12 +35,12 @@ public class ClaseBaja extends Persona{
 		return this.house.length;
 	}
 	
-	public House[] setHouse(House nuevo) {
+	public String setHouse(House nuevo) {
 		if(nuevo!=null) {
 			this.house[0]=nuevo;
-			return this.house;
+			return this.house.toString();
 		}else {
-			return this.house;
+			return this.house.toString();
 		}
 	}
 
@@ -52,16 +57,24 @@ public class ClaseBaja extends Persona{
 	}
 	
 	@Override
-	public Coche[] getCoche() {
+	public String getCoche() {
 		// TODO Auto-generated method stub
-		return this.coche;
+		if(this.coche!=null) {
+			String s="";
+			for(int i=0; i<this.coche.length;i++) {
+				s+=this.coche[i].toString();
+			}
+			return s;
+		}
+		
+		return "no tiene coche";
 	}
 	
 	public String setCoche(Coche nuevo) {
 		if(nuevo!=null) {
 			this.coche=new Coche[1];
 			coche[0]=nuevo;
-			return this.coche.toString();
+			return this.coche[0].toString();
 		}
 		return "no tiene coche";
 	}
@@ -81,7 +94,7 @@ public class ClaseBaja extends Persona{
 	public String toString() {
 		return "ClaseBaja [house=" + Arrays.toString(house) + ", coche=" + Arrays.toString(coche) + ", getHouse()="
 				+ getHouse() + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
-				+ Arrays.toString(getCoche()) + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
+				+ getCoche() + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
 				+ ", getApellidos()=" + getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()=" + isCasado()
 				+ ", getDni()=" + getDni() + "]";
 	}

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import claseNodo.Coche;
 import claseNodo.House;
+import claseNodo.Imprimir;
 
 public class ClaseAlta extends Persona{
 	private House[] houses=new House[1];
@@ -19,7 +20,12 @@ public class ClaseAlta extends Persona{
 	
 	public String getHouse() {
 		// TODO Auto-generated method stub
-		return houses.toString();
+		String s="";
+		for(int i=0;i<this.houses.length;i++)
+		{
+			s+=houses[i].toString();
+		}
+		return s;
 	}
 
 	
@@ -29,9 +35,14 @@ public class ClaseAlta extends Persona{
 	}
 
 	
-	public Coche[] getCoche() {
+	public String getCoche() {
 		// TODO Auto-generated method stub
-		return coches;
+		String s="";
+		for(int i=0; i<coches.length;i++) {
+			s+=coches[i].toString();
+		}
+		return s;
+		
 	}
 
 	
@@ -40,7 +51,7 @@ public class ClaseAlta extends Persona{
 		return coches.length;
 	}
 
-	public House[] addHouse(House nueva) {
+	public String addHouse(House nueva) {
 		House[] tmp=new House[this.houses.length+1];
 		for(int i=0;i<this.houses.length;i++) {
 			tmp[i]=houses[i];
@@ -49,10 +60,14 @@ public class ClaseAlta extends Persona{
 		tmp[tmp.length-1]=nueva;
 		this.houses=tmp;
 		
-		return this.houses;
+		String s="";
+		for(int i=0; i<this.houses.length;i++) {
+			s+=this.houses[i].toString();
+		}
+		return s;
 	}
 	
-	public Coche[] addCoche(Coche nueva) {
+	public String addCoche(Coche nueva) {
 		Coche[] tmp=new Coche[this.houses.length+1];
 		for(int i=0;i<this.houses.length;i++) {
 			tmp[i]=coches[i];
@@ -61,14 +76,19 @@ public class ClaseAlta extends Persona{
 		tmp[tmp.length-1]=nueva;
 		this.coches=tmp;
 		
-		return this.coches;
+		String s="";
+		for(int i=0; i<this.coches.length;i++) {
+			s+=this.coches[i].toString();
+		}
+		
+		return s;
 	}
 	
 	
 	public String toString() {
 		return "ClaseAlta [houses=" + Arrays.toString(houses) + ", coches=" + Arrays.toString(coches) + ", getHouse()="
 				+ getHouse() + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
-				+ Arrays.toString(getCoche()) + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
+				+ getCoche() + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
 				+ ", getApellidos()=" + getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()=" + isCasado()
 				+ ", getDni()=" + getDni() + "]";
 	}

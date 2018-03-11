@@ -32,8 +32,8 @@ public class Coche {
 		this.matricula = c.matricula;
 	}
 
-	public Circulo[] getRueda() {
-		return rueda;
+	public String getRueda() {
+		return rueda.toString();
 	}
 
 	public void setRueda(Circulo[] rueda) {
@@ -84,7 +84,7 @@ public class Coche {
 	public String toString() {
 		return "Coche [rueda=" + Arrays.toString(rueda) + ", sillas=" + Arrays.toString(sillas) + ", cuerpo=" + cuerpo
 				+ ", color=" + color + ", matricula=" + matricula + ", marca=" + marca + ", getRueda()="
-				+ Arrays.toString(getRueda()) + ", getSillas()=" + Arrays.toString(getSillas()) + ", getCuerpo()="
+				+ getRueda() + ", getSillas()=" + Arrays.toString(getSillas()) + ", getCuerpo()="
 				+ getCuerpo() + ", getColor()=" + getColor() + ", getMatricula()=" + getMatricula() + ", getMarca()="
 				+ getMarca() +  "]";
 	}

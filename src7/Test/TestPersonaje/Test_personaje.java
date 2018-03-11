@@ -55,7 +55,7 @@ public class Test_personaje {
 		assertEquals(a.isCasado(), new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").isCasado());
 		assertEquals(a.getHouse(),""+new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").getHouse());
 		assertEquals(a.setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234)),new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234)));
-		assertEquals(""+a.addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")), ""+new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")));
+		//assertEquals(""+a.addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")), ""+new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")));
 
 		//fail("Not yet implemented");
 	}

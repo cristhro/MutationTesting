@@ -6,7 +6,7 @@ import claseNodo.House;
 public interface Propiedad {
 	public String getHouse();
 	public int getNumHouse();
-	public Coche[] getCoche();
+	public String getCoche();
 	public int getNumCoche();
 	
 
