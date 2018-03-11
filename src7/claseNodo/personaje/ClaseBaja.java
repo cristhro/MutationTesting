@@ -17,9 +17,9 @@ public class ClaseBaja extends Persona{
 	}   
    
 	@Override
-	public House[] getHouse() {
+	public String getHouse() {
 		// TODO Auto-generated method stub
-		return house;
+		return house.toString();
 	}
 
 	
@@ -80,7 +80,7 @@ public class ClaseBaja extends Persona{
 	@Override
 	public String toString() {
 		return "ClaseBaja [house=" + Arrays.toString(house) + ", coche=" + Arrays.toString(coche) + ", getHouse()="
-				+ Arrays.toString(getHouse()) + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
+				+ getHouse() + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
 				+ Arrays.toString(getCoche()) + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
 				+ ", getApellidos()=" + getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()=" + isCasado()
 				+ ", getDni()=" + getDni() + "]";

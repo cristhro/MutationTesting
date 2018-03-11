@@ -4,7 +4,7 @@ import claseNodo.Coche;
 import claseNodo.House;
 
 public interface Propiedad {
-	public House[] getHouse();
+	public String getHouse();
 	public int getNumHouse();
 	public Coche[] getCoche();
 	public int getNumCoche();

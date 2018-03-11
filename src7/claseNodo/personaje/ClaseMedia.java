@@ -34,9 +34,9 @@ public class ClaseMedia extends Persona{
 		}
 	}
 	
-	public House[] getHouse() {
+	public String getHouse() {
 		// TODO Auto-generated method stub
-		return house;
+		return house.toString();
 	}
 
 	
@@ -60,7 +60,7 @@ public class ClaseMedia extends Persona{
 	
 	public String toString() {
 		return "ClaseMedia [house=" + Arrays.toString(house) + ", coche=" + Arrays.toString(coche) + ", getHouse()="
-				+ Arrays.toString(getHouse()) + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
+				+ getHouse() + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
 				+ Arrays.toString(getCoche()) + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
 				+ ", getApellidos()=" + getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()=" + isCasado()
 				+ ", getDni()=" + getDni() + "]";

@@ -17,9 +17,9 @@ public class ClaseAlta extends Persona{
 	}
 
 	
-	public House[] getHouse() {
+	public String getHouse() {
 		// TODO Auto-generated method stub
-		return houses;
+		return houses.toString();
 	}
 
 	
@@ -67,7 +67,7 @@ public class ClaseAlta extends Persona{
 	
 	public String toString() {
 		return "ClaseAlta [houses=" + Arrays.toString(houses) + ", coches=" + Arrays.toString(coches) + ", getHouse()="
-				+ Arrays.toString(getHouse()) + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
+				+ getHouse() + ", getNumHouse()=" + getNumHouse() + ", getCoche()="
 				+ Arrays.toString(getCoche()) + ", getNumCoche()=" + getNumCoche() + ", getNombre()=" + getNombre()
 				+ ", getApellidos()=" + getApellidos() + ", getEdad()=" + getEdad() + ", isCasado()=" + isCasado()
 				+ ", getDni()=" + getDni() + "]";
