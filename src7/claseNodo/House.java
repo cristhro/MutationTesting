@@ -19,39 +19,80 @@ public class House implements Direccion {
 
 
 	
-	public Posicion getPos() {
+	public String getPos() {
 		// TODO Auto-generated method stub
-		return posicion;
+		if(posicion!=null) {
+			return posicion.toString();
+		}else {
+			return "posicion es nula";
+		}
+		
 	}
 
 	
-	public String getNomDir() {
-		// TODO Auto-generated method stub
-		return dir;
+	public String setPos(Posicion posicion) {
+		if(posicion!=null) {
+			this.posicion=posicion;
+			return posicion.toString();
+		}else {
+			return "posicion es nula";
+		}
 	}
+
+
+
+
 
 	public String getFigura3D() {
-		return figura3D.toString();
+		if(this.figura3D!=null) {
+			String s="";
+			for(int i=0; i<this.figura3D.length;i++) {
+				s+=this.figura3D[i].toString();
+			}
+			return s;
+		}else {
+			return "aun no tiene figura";
+		}
+		
 	}
 
-	public void setFigura3D(Figura3D[] figura3d) {
-		figura3D = figura3d;
+	public String addFigura3D(Figura3D figura3d) {
+		if(figura3d==null) {
+			return "no nueva figura es null";
+		}else {
+			if(this.figura3D!=null) {
+				Figura3D[] tmp = new Figura3D[this.figura3D.length+1];
+				for(int i=0; i<this.figura3D.length;i++) {
+					tmp[i]=this.figura3D[i];
+				}
+				tmp[this.figura3D.length]=figura3d;
+			}else {
+				Figura3D[] tmp = new Figura3D[1];
+				tmp[0]=figura3d;
+				this.figura3D=tmp;
+			}
+			
+			String s="";
+			for(int i=0; i<this.figura3D.length;i++) {
+				s+=this.figura3D[i].toString();
+			}
+			return s;
+		}
 	}
 
-	public Posicion getPosicion() {
-		return posicion;
-	}
-
-	public void setPosicion(Posicion posicion) {
-		this.posicion = posicion;
-	}
 
 	public String getDir() {
 		return dir;
 	}
 
-	public void setDir(String dir) {
-		this.dir = dir;
+	public String setDir(String dir) {
+		if(dir!=null) {
+			this.dir = dir;
+			return dir;
+		}else {
+			return "nueva dir es nulo";
+		}
+		
 	}
 
 
@@ -59,8 +100,8 @@ public class House implements Direccion {
 	@Override
 	public String toString() {
 		return "House [figura3D=" + Arrays.toString(figura3D) + ", posicion=" + posicion + ", dir=" + dir
-				+ ", getPos()=" + getPos() + ", getNomDir()=" + getNomDir() + ", getFigura3D()="
-				+ getFigura3D() + ", getPosicion()=" + getPosicion() + ", getDir()=" + getDir()
+				+ ", getPos()=" + getPos() + ", getDir()=" + getDir() + ", getFigura3D()="
+				+ getFigura3D() + ", getPos()=" + getPos() + ", getDir()=" + getDir()
 				+ "]";
 	}
 

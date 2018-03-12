@@ -21,7 +21,7 @@ public class Prueba {
 		Circulo[] ruedas= {new Circulo(2),new Circulo(2),new Circulo(2),new Circulo(2)};
 		Cuadrado[] sillas= {new Cuadrado(1),new Cuadrado(1),new Cuadrado(1),new Cuadrado(1)};
 		Cubo cuerpo=new Cubo(new Cuadrado(2),12);
-		Coche[] coches= {new Coche(ruedas,sillas,cuerpo,"honda",1234),new Coche(ruedas,sillas,cuerpo,"mercedes",1234)};
+		Coche[] coches= {new Coche(ruedas,sillas,cuerpo,"honda",1234,"verde"),new Coche(ruedas,sillas,cuerpo,"mercedes",1234,"verde")};
 		House[] houses= {new House(figura3D,new Posicion(2,3),"moncloa"),new House(figura3D,new Posicion(12,13),"casa blanca")};
 		ClaseAlta a=new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345");
 		

@@ -54,7 +54,7 @@ public class Test_personaje {
 		assertEquals(a.getEdad(),new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").getEdad());
 		assertEquals(a.isCasado(), new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").isCasado());
 		assertEquals(a.getHouse(),""+new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").getHouse());
-		assertEquals(a.setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234)),new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234)));
+		assertEquals(a.setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234,"azul")),new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234,"azul")));
 		//assertEquals(""+a.addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")), ""+new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")));
 
 		//fail("Not yet implemented");
@@ -68,7 +68,7 @@ public class Test_personaje {
 		Circulo[] ruedas= {new Circulo(20),new Circulo(22),new Circulo(22),new Circulo(20)};
 		Cuadrado[] sillas= {new Cuadrado(1),new Cuadrado(1),new Cuadrado(1),new Cuadrado(1)};
 		Cubo cuerpo=new Cubo(new Cuadrado(102),12);
-		Coche coche= new Coche(ruedas,sillas,cuerpo,"mercedes",1234);
+		Coche coche= new Coche(ruedas,sillas,cuerpo,"mercedes",1234,"amarillo");
 		House house= new House(figura3D,new Posicion(12,13),"casa blanca");
 		ClaseMedia a=new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345");
 		assertEquals(a.toString(), new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").toString());
@@ -79,7 +79,7 @@ public class Test_personaje {
 		assertEquals(a.getEdad(),new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").getEdad());
 		assertEquals(a.isCasado(),new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").isCasado());
 		assertEquals(a.getHouse(),""+new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").getHouse());
-		assertEquals(""+a.setCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000)),new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").setCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000)) );
+		assertEquals(""+a.setCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000,"blanca")),new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").setCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000,"blanca")) );
 		assertEquals(""+a.setHouse(new House(figura3D,new Posicion(20,30),"casa de campo")),new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").setHouse(new House(figura3D,new Posicion(20,30),"casa de campo"))
 				);
 		//fail("Not yet implemented");
@@ -95,7 +95,7 @@ public class Test_personaje {
 		Circulo[] ruedas= {new Circulo(2),new Circulo(2),new Circulo(2),new Circulo(2)};
 		Cuadrado[] sillas= {new Cuadrado(1),new Cuadrado(1),new Cuadrado(1),new Cuadrado(1)};
 		Cubo cuerpo=new Cubo(new Cuadrado(2),12);
-		Coche[] coches= {new Coche(ruedas,sillas,cuerpo,"honda",1234),new Coche(ruedas,sillas,cuerpo,"mercedes",1234)};
+		Coche[] coches= {new Coche(ruedas,sillas,cuerpo,"honda",1234,"negro"),new Coche(ruedas,sillas,cuerpo,"mercedes",1234,"negro")};
 		House[] houses= {new House(figura3D,new Posicion(2,3),"moncloa"),new House(figura3D,new Posicion(12,13),"casa blanca")};
 		ClaseAlta a=new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345");
 		assertEquals(a.toString(), new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345").toString());
@@ -106,7 +106,7 @@ public class Test_personaje {
 		assertEquals(a.getEdad(),new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345").getEdad());
 		assertEquals(a.isCasado(), new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345").isCasado());
 		assertEquals(a.getHouse(),""+new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345").getHouse());
-		assertEquals(""+a.addCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000)), ""+new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345").addCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000)));
+		assertEquals(""+a.addCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000,"verde")), ""+new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345").addCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000,"verde")));
 		assertEquals(""+a.addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")), ""+new ClaseAlta(houses,coches, "pepe", "alonso", 40, false, "12345").addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")));
 		//fail("Not yet implemented");
 

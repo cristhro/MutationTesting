@@ -12,14 +12,25 @@ public class Posicion {
 	public int getX() {
 		return x;
 	}
-	public void setX(int x) {
-		this.x = x;
+	public int setX(int x) {
+		if(x>0) {
+			this.x = x;
+			return x;
+		}else {
+			return -1;
+		}
+		
 	}
 	public int getY() {
 		return y;
 	}
-	public void setY(int y) {
-		this.y = y;
+	public int setY(int y) {
+		if(y>0) {
+			this.y = y;
+			return y;
+		}else {
+			return -1;
+		}
 	}
 	
 	
