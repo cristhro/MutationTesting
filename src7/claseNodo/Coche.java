@@ -152,9 +152,20 @@ public class Coche {
 		return this.marca;
 	}
 
+	private String getListRuedas() {
+		if(this.rueda!=null) {
+			String s="";
+			for(int i=0;i<this.rueda.length;i++) {
+				s+=this.rueda[i].toString();
+			}
+			return s;
+		}
+		
+		return "no tiene rueda aun";
+	}
 
 	public String toString() {
-		return "Coche [rueda=" + Arrays.toString(rueda) + ", sillas=" + Arrays.toString(sillas) + ", cuerpo=" + cuerpo
+		return "Coche [rueda=" + getListRuedas() + ", sillas=" + Arrays.toString(sillas) + ", cuerpo=" + cuerpo
 				+ ", color=" + color + ", matricula=" + matricula + ", marca=" + marca + ", getRueda()="
 				+ getRueda() + ", getSillas()=" + getSillas() + ", getCuerpo()="
 				+ getCuerpo() + ", getColor()=" + getColor() + ", getMatricula()=" + getMatricula() + ", getMarca()="

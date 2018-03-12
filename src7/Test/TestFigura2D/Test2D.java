@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import claseNodo.figura2D.Circulo;
 import claseNodo.figura2D.Cuadrado;
-import claseNodo.figura2D.Rectangulo;
 import claseNodo.figura2D.Triangulo;
 
 public class Test2D {

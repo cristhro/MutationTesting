@@ -18,8 +18,9 @@ public class TestPosicion {
 		assertEquals(pos.toString(),new Posicion(123,234).toString());
 		assertEquals(pos.getX(),new Posicion(123,234).getX());
 		assertEquals(pos.getY(),new Posicion(123,234).getY());
-		assertEquals(pos.setX(101),new Posicion(123,234).setX(102));
-		assertEquals(pos.setY(101),new Posicion(123,234).setY(102));
+		
+		assertEquals(pos.setX(102),new Posicion(123,234).setX(102));
+		assertEquals(pos.setY(102),new Posicion(123,234).setY(102));
 
 	}
 

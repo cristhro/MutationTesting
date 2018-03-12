@@ -31,12 +31,13 @@ public class TestHouse {
 		House a=new House(figura3D, pos, "calle manuel luna");
 		assertNotNull("should not be null", new House(figura3D, pos, "calle manuel luna"));
 		assertEquals(a.getDir(),new House(figura3D, pos, "calle manuel luna").getDir());
-		assertEquals(a.setDir("calle velayos"),new House(figura3D, pos, "calle manuel luna").setDir("calle velayos"));
 		assertEquals(a.getFigura3D(),new House(figura3D, pos, "calle manuel luna").getFigura3D());
-		assertEquals(a.addFigura3D(new Tetraedro(new Rectangulo(2, 13), 10)),new House(figura3D, pos, "calle manuel luna").addFigura3D(new  Tetraedro(new Rectangulo(2, 13), 10)));
 		assertEquals(a.getPos(),new House(figura3D, pos, "calle manuel luna").getPos());
-		assertEquals(a.setPos(new Posicion(333,444)),new House(figura3D, pos, "calle manuel luna").setPos(new Posicion(333,444)));
 		assertEquals(a.toString(),new House(figura3D, pos, "calle manuel luna").toString());
+
+		assertEquals(a.setDir("calle velayos"),new House(figura3D, pos, "calle manuel luna").setDir("calle velayos"));
+		assertEquals(a.setPos(new Posicion(333,444)),new House(figura3D, pos, "calle manuel luna").setPos(new Posicion(333,444)));
+		assertEquals(a.addFigura3D(new Tetraedro(new Rectangulo(2, 13), 10)),new House(figura3D, pos, "calle manuel luna").addFigura3D(new  Tetraedro(new Rectangulo(2, 13), 10)));
 
 
 
