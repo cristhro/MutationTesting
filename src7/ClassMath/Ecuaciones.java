@@ -63,11 +63,21 @@ public class Ecuaciones {
 
 	public double ecu6(double[] entrada) {
 		// TODO Auto-generated method stub
-		double x=0;
+		double x=1;
 		for(int i=0; i<entrada.length; i++) {
 			x*=entrada[i];
 		}
 		return x;
 	}
+	
+	public double ecu7(double[] entrada) {
+		// TODO Auto-generated method stub
+		double x=0;
+		for(int i=0; i<entrada.length; i++) {
+			x+=entrada[i];
+		}
+		return x;
+	}
+	
 	
 }

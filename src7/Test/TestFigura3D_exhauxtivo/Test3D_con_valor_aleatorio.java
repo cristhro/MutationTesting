@@ -1,4 +1,4 @@
-package Test.TestFigura3D_Mas_valores;
+package Test.TestFigura3D_exhauxtivo;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,6 @@ import Test.Utils;
 import claseNodo.figura2D.Circulo;
 import claseNodo.figura2D.Cuadrado;
 import claseNodo.figura2D.Rectangulo;
-import claseNodo.figura2D.Triangulo;
 import claseNodo.figura3D.Cilindro;
 import claseNodo.figura3D.Cubo;
 import claseNodo.figura3D.Esfera;

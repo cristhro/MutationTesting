@@ -1,4 +1,4 @@
-package Test.TestFigura2D_Mas_Valores;
+package Test.TestFigura2D_exhauxtivo;
 
 import static org.junit.Assert.*;
 

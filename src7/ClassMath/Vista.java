@@ -8,58 +8,78 @@ public class Vista {
 	private int size=0;
 	private double[] result;
 	private LinkedList<double[]> entradas;
-	private int[] argEcus={1,2,2,3,-1,-1}; 
+	//si el valor es -1, significa que la opecion elegido no tiene restriccion del numero de argumentos
+	private int[] argEcus={1,2,2,3,-1,-1,-1}; 
+	private int maxOp=7;
 	
+	public Vista() {
+		this.secuenciaOps=new int[1];
+		this.result=new double[1];
+		result[0]=0;
+		this.entradas=new LinkedList<>();
+	}
 	
 	public Vista(int[] secuenciaOps, LinkedList<double[]> entradas) {
 		this.secuenciaOps = secuenciaOps;
-		this.result = new double[secuenciaOps.length];
+		if(secuenciaOps!=null) {
+			this.result = new double[secuenciaOps.length];
+			clearResult();
+		}
 		this.entradas = entradas;
 		
-		clearResult();
+		
 		
 		new ControlMath(secuenciaOps, size,  result,  entradas);
 	}
 	
-	public void clearResult() {
+	public int[] getArgEcus() {
+		return this.argEcus;
+	}
+	
+	public String clearResult() {
 		// TODO Auto-generated method stub
 		for(int i=0; i<this.result.length;i++) {
 			this.result[i]=Byte.MIN_VALUE;
 		}
 		
+		return mostrarResult();
 	}
 
-	public String add(int x, double[] entrada){
-		if(this.size==secuenciaOps.length) {
-			int[] tmp=new int[(int) (size*1.5)];
-			double[] tmp2=new double[(int) (size*1.5)];
-			for(int j=0;j<this.size;j++) {
-				tmp[j]=this.secuenciaOps[j];
-				tmp2[j]=this.result[j];
-			}
-			tmp[size+1]=x;
-			tmp2[size+1]=Byte.MIN_VALUE;
-			
-			this.entradas.add(entrada);
-			this.secuenciaOps=tmp;
-			this.result=tmp2;
+	
+	public int[] add(int op, double[] entrada){
+		//se expande el tamaño de la list 
+		if(op>maxOp) {
+			System.out.println("Error de argumento1");
+			return null;
 		}else {
-			this.entradas.add(entrada);
-			this.secuenciaOps[size]=x;
-			this.result[size]=Byte.MIN_VALUE;
+			if(this.size==secuenciaOps.length) {
+				int[] tmp=new int[(int) (size*1.5)];
+				double[] tmp2=new double[(int) (size*1.5)];
+				for(int j=0;j<this.size;j++) {
+					tmp[j]=this.secuenciaOps[j];
+					tmp2[j]=this.result[j];
+				}
+				tmp[size+1]=op;
+				tmp2[size+1]=Byte.MIN_VALUE;
+				
+				this.entradas.add(entrada);
+				this.secuenciaOps=tmp;
+				this.result=tmp2;
+			}else {
+				this.entradas.add(entrada);
+				this.secuenciaOps[size]=op;
+				this.result[size]=Byte.MIN_VALUE;
+			}
+			size++;
+			
+			return secuenciaOps;
 		}
-		size++;
 		
-		return showEcuaciones();
-	}
-	public String showEcuaciones() {
-		String s="";
-		for(int i=0; i<size;i++) {
-			s+=this.secuenciaOps[i];
-		}
-		return s;
 	}
 	
+	
+	
+	//pide un resultado segun la posicion de la operacion
 	public String getResult(int index) {
 		if(this.secuenciaOps==null) {
 			return "no hay ecuacion seleccionada";
@@ -80,13 +100,21 @@ public class Vista {
 		return s;
 	}
 	
+	
 	public boolean check() {
 		boolean ok=true;
+		//comprobar si el argumento de entrada corresponde a las opciones elegidas
 		for(int i=0;i<this.argEcus.length;i++) {
 			if(argEcus[i]!=-1) {
 				ok=ok && (entradas.get(i).length==argEcus[i]);
 			}
 		}
+		
+		//Y argumento de entrada es valido
+		for(int i=0; i<this.secuenciaOps.length;i++) {
+			ok=ok && secuenciaOps[i]>=1 && secuenciaOps[i]<=maxOp;
+		}
+		
 		return ok;
 	}
 }

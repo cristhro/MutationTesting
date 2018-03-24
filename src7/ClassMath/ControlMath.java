@@ -28,6 +28,8 @@ public class ControlMath {
 				return ecus.ecu5(entrada);
 			case 6:
 				return ecus.ecu6(entrada);
+			case 7:
+				return ecus.ecu7(entrada);
 			default:
 				return Byte.MIN_VALUE;
 		}
