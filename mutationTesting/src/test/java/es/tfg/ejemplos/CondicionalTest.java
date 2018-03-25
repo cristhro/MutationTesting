@@ -1,15 +1,9 @@
 package es.tfg.ejemplos;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.fest.assertions.api.Assertions.assertThat;
-
-
 public class CondicionalTest {
     private Condicional condicional;
     private Condicional2 condicional2;
-
+/*
     @Before
     public void inicializa(){
         this.condicional = new Condicional();
@@ -32,4 +26,5 @@ public class CondicionalTest {
         int ok = condicional2.esMenor(3,2);
         assertThat(ok).isEqualTo(1);
     }
+ */
 }

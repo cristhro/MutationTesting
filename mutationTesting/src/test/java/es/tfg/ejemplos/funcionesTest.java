@@ -1,13 +1,6 @@
 package es.tfg.ejemplos;
 
 import org.junit.Before;
-import org.junit.Test;
-
-
-import static org.fest.assertions.api.Assertions.assertThat;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class funcionesTest {
     private Funciones funciones;
@@ -17,7 +10,7 @@ public class funcionesTest {
         this.funciones = new Funciones();
     }
 
-    @Test
+   /* @Test
     public void testCondicional() throws Exception {
     		List<Integer> indices = new ArrayList<Integer>(); 
     		
@@ -31,4 +24,5 @@ public class funcionesTest {
     		//assertThat(funciones.f1(false, true)).isEqualTo(true);
         //assertThat(funciones.f1(true, false)).isEqualTo(true);
     }
+    */
 }

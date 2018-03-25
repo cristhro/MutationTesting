@@ -14,6 +14,7 @@ public class BusinessLogicTest {
     public void shouldGetNormalPricingForOneItem(){
         shouldGetPrice(1, false, 17);
     }
+
     @Test
     public void shouldGetDiscountPricingForOneItem(){
         shouldGetPrice(1, true, 15);
