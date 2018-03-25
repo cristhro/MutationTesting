@@ -29,7 +29,7 @@ public class Vista {
 		
 		
 		
-		new ControlMath(secuenciaOps, size,  result,  entradas);
+		new ControlMath(secuenciaOps, result,  entradas);
 	}
 	
 	public int[] getArgEcus() {
@@ -47,7 +47,7 @@ public class Vista {
 
 	
 	public int[] add(int op, double[] entrada){
-		//se expande el tamaño de la list 
+		//se expande el tamaï¿½o de la list 
 		if(op>maxOp) {
 			System.out.println("Error de argumento1");
 			return null;

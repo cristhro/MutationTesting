@@ -6,11 +6,33 @@ public class ControlMath {
 	private Ecuaciones ecus;
 	
 	
-	public ControlMath(int[] secuenciaOps, int size, double[] result, LinkedList<double[]> entradas) {
+	public ControlMath(int[] secuenciaOps, double[] result, LinkedList<double[]> entradas) {
 		// TODO Auto-generated constructor stub
-		for(int i=0;i>size;i++) {
-			result[i]=select(entradas.get(i),secuenciaOps[i]);
+		if(secuenciaOps==null) {
+			//System.out.println("Error de secuenciaOps");
+		}else if(result == null) {
+			//System.out.println("Error de result");
+		}else if(entradas == null) {
+			//System.out.println("Error de entradas");
 		}
+		
+		if( secuenciaOps!=null && result!=null && entradas!=null) {
+			this.ecus=new Ecuaciones();
+			int i=0;
+			while(i<secuenciaOps.length && secuenciaOps[i]!=0) {
+				result[i]=select(entradas.get(i),secuenciaOps[i]);
+				i++;
+			}
+		}else {
+			this.ecus=new Ecuaciones();
+			//System.out.println("error de instanciacion");
+		}
+		
+	}
+
+	public ControlMath() {
+		// TODO Auto-generated constructor stub
+		this.ecus=new Ecuaciones();
 	}
 
 
