@@ -27,23 +27,32 @@ public class test_Control_exhaustivo {
 		 */
 		int decisiones[] = {0,1,2,3,4,5,6};
 		LinkedList<double[]> entradas=new LinkedList<double[]>();
-		int[] inf=new Vista(null,null).getArgEcus();
+		Vista vista=new Vista();
 
 		for(int op=0; op<decisiones.length;op++) {
-			entradas.add(Util.generaEntrada(inf[decisiones[op]]));
+			entradas.add(Util.generaEntrada(vista.getArgEcus(decisiones[op])));
 		}
 		
 
 		assertNotNull("should not be null", new ControlMath(decisiones,  new double[decisiones.length], entradas));	
-
+		assertNotNull("should not be null", new ControlMath());	
+		assertNotNull("should not be null", new ControlMath(decisiones,  new double[decisiones.length], null));	
+		assertNotNull("should not be null", new ControlMath(decisiones,  null, entradas));	
+		assertNotNull("should not be null", new ControlMath(null,  new double[decisiones.length], entradas));
+		assertNotNull("should not be null", new ControlMath(null,  null, null));	
+		
 		//exhaustivo
-		for(int op=0;op<inf.length;op++) {
+		for(int op=-100;op<100;op++) {
 			ControlMath object=new ControlMath(decisiones, new double[decisiones.length], entradas);
-			double[] entrada=Util.generaEntrada(inf[op]);
+			double[] entrada=Util.generaEntrada(vista.getArgEcus(op));
 			assertEquals(object.select(entrada, op)+"",object.select(entrada, op)+"");
+			
+			ControlMath object2=new ControlMath(null, new double[decisiones.length], entradas);
+			double[] entrada2=Util.generaEntrada(vista.getArgEcus(op));
+			assertEquals(object2.select(null, op)+"",object2.select(null, op)+"");
 		}
 		
-
+ 
 	}
 }
 

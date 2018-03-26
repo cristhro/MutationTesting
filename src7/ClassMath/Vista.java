@@ -10,7 +10,7 @@ public class Vista {
 	private LinkedList<double[]> entradas;
 	//si el valor es -1, significa que la opecion elegido no tiene restriccion del numero de argumentos
 	private int[] argEcus={1,2,2,3,-1,-1,-1}; 
-	private int maxOp=7;
+	private int maxOp=argEcus.length;
 	
 	public Vista() {
 		this.secuenciaOps=new int[1];
@@ -33,17 +33,32 @@ public class Vista {
 		new ControlMath(secuenciaOps, result,  entradas);
 	}
 	
-	public int[] getArgEcus() {
-		return this.argEcus;
+	public int getNumOps() {
+		return this.argEcus.length;
+	}
+	public int getArgEcus(int x) {
+		if(x>=0 && x<argEcus.length) {
+			return this.argEcus[x];
+		}else {
+			return -1;
+		}
+		
 	}
 	
 	public String clearResult() {
 		// TODO Auto-generated method stub
-		for(int i=0; i<this.result.length;i++) {
-			this.result[i]=Byte.MIN_VALUE;
+		if(this.result!=null) {
+			for(int i=0; i<this.result.length;i++) {
+				this.result[i]=Byte.MIN_VALUE;
+			}
+			return mostrarResult();
+		}else {
+			
+			return "no hay resultado";
 		}
 		
-		return mostrarResult();
+		
+		
 	}
 
 	
@@ -86,8 +101,8 @@ public class Vista {
 			return "no hay ecuacion seleccionada";
 		}else if(index>=size) {
 			return "null";
-		}else if(this.result[index]==-1){
-			return "aun no tiene resultado";
+		}else if(index<0){
+			return "error de valor index";
 		}else {
 			return this.result[index]+"";
 		}

@@ -22,21 +22,20 @@ public class TestVista {
 		 */
 		int decisiones[] = {0,1,2,3,4,5,6};
 		LinkedList<double[]> entradas=new LinkedList<double[]>();
-		int[] inf=new Vista(null,null).getArgEcus();
-	
+		Vista vista=new Vista();
 		for(int op=0; op<decisiones.length;op++) {
-			entradas.add(Util.generaEntrada(inf[op]));
+			entradas.add(Util.generaEntrada(vista.getArgEcus(op)));
 		}
 		
 		
 		/**
-		 *parte de testing 
+		 *parte de testing , como es aleatorio, solamente cubre todas las funciones, no todas las sentencias en cada funcion
 		 */
 		
 		//aleatorio
-		//int op=(int)Utils.getRandomArbitrary(0, 7);
-		int op=1;
-		double[] a=Util.generaEntrada(inf[op]);
+		int op=(int)Utils.getRandomArbitrary(-100, 788);
+		
+		double[] a=Util.generaEntrada(vista.getArgEcus(op));
 		//System.out.println("a length: "+a.length);
 		assertArrayEquals(new Vista().add(op,a), new Vista().add(op,a));
 		assertArrayEquals(new Vista(decisiones,entradas).add(op,a), 
@@ -53,8 +52,8 @@ public class TestVista {
 		
 		//parte comun, que no se afecta por usar aleatorio y exhaustivo
 		assertNotNull("should not be null", new Vista(decisiones,entradas));	
-		assertNotNull("should not be null", new Vista());	
-		assertArrayEquals(new Vista(null,null).getArgEcus(), new Vista(null,null).getArgEcus() );
+		assertNotNull("should not be null", new Vista());
+		assertEquals(new Vista(decisiones,entradas).getNumOps(),new Vista(decisiones,entradas).getNumOps());
 		assertEquals(new Vista(decisiones,entradas).clearResult(),new Vista(decisiones,entradas).clearResult());
 		assertEquals(new Vista(decisiones,entradas).mostrarResult(),new Vista(decisiones,entradas).mostrarResult());
 
