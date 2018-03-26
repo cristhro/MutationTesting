@@ -11,23 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class TestControl {
-	private double[] generaEntrada(int size) {
-		if(size>0) {
-			double[] entrada= new double[size];
-			for(int i=0; i<size;i++) {
-				entrada[i]=Utils.getRandomArbitrary(0, 99);
-			}
-			return entrada;
-		}else {
-			int len=(int) Utils.getRandomArbitrary(0, 99);
-			double[] entrada= new double[len];
-			for(int i=0; i<len;i++) {
-				entrada[i]=Utils.getRandomArbitrary(0, 99);
-			}
-			return entrada;
-		}
-		
-	}
+	
 
 	@Test
 	public void test() {
@@ -42,7 +26,7 @@ public class TestControl {
 				int[] inf=new Vista(null,null).getArgEcus();
 			
 				for(int op=0; op<decisiones.length;op++) {
-					entradas.add(generaEntrada(inf[decisiones[op]]));
+					entradas.add(Util.generaEntrada(inf[decisiones[op]]));
 				}
 				
 				System.out.println("size: "+size);
@@ -54,7 +38,7 @@ public class TestControl {
 		//se testea la funcion con un numero aleatorio
 		int op=(int)Utils.getRandomArbitrary(0, 7);
 		ControlMath object=new ControlMath(decisiones, new double[decisiones.length], entradas);
-		double[] entrada=generaEntrada(inf[op]);
+		double[] entrada=Util.generaEntrada(inf[op]);
 		assertEquals(object.select(entrada, op)+"",object.select(entrada, op)+"");
 		
 	}

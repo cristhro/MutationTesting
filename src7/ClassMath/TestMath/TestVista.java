@@ -11,23 +11,7 @@ import static org.junit.Assert.*;
 public class TestVista {
 
 	
-	private double[] generaEntrada(int size) {
-		if(size>0) {
-			double[] entrada= new double[size];
-			for(int i=0; i<size;i++) {
-				entrada[i]=Utils.getRandomArbitrary(0, 99);
-			}
-			return entrada;
-		}else {
-			int len=(int) Utils.getRandomArbitrary(0, 99);
-			double[] entrada= new double[len];
-			for(int i=0; i<len;i++) {
-				entrada[i]=Utils.getRandomArbitrary(0, 99);
-			}
-			return entrada;
-		}
-		
-	}
+	
 
 	@Test
 	public void test() {
@@ -41,7 +25,7 @@ public class TestVista {
 		int[] inf=new Vista(null,null).getArgEcus();
 	
 		for(int op=0; op<decisiones.length;op++) {
-			entradas.add(generaEntrada(inf[op]));
+			entradas.add(Util.generaEntrada(inf[op]));
 		}
 		
 		
@@ -52,7 +36,7 @@ public class TestVista {
 		//aleatorio
 		//int op=(int)Utils.getRandomArbitrary(0, 7);
 		int op=1;
-		double[] a=generaEntrada(inf[op]);
+		double[] a=Util.generaEntrada(inf[op]);
 		//System.out.println("a length: "+a.length);
 		assertArrayEquals(new Vista().add(op,a), new Vista().add(op,a));
 		assertArrayEquals(new Vista(decisiones,entradas).add(op,a), 
