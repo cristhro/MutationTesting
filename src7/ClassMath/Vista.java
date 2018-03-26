@@ -23,6 +23,7 @@ public class Vista {
 		this.secuenciaOps = secuenciaOps;
 		if(secuenciaOps!=null) {
 			this.result = new double[secuenciaOps.length];
+			this.size=secuenciaOps.length;
 			clearResult();
 		}
 		this.entradas = entradas;
@@ -50,21 +51,21 @@ public class Vista {
 		//se expande el tama�o de la list 
 		if(op>maxOp) {
 			System.out.println("Error de argumento1");
-			return null;
+			return secuenciaOps;
 		}else {
 			if(this.size==secuenciaOps.length) {
-				int[] tmp=new int[(int) (size*1.5)];
-				double[] tmp2=new double[(int) (size*1.5)];
+				int[] tmp_ops=new int[(int) (size*1.5)];
+				double[] tmp_res=new double[(int) (size*1.5)];
 				for(int j=0;j<this.size;j++) {
-					tmp[j]=this.secuenciaOps[j];
-					tmp2[j]=this.result[j];
+					tmp_ops[j]=this.secuenciaOps[j];
+					tmp_res[j]=this.result[j];
 				}
-				tmp[size+1]=op;
-				tmp2[size+1]=Byte.MIN_VALUE;
+				tmp_ops[size]=op;
+				tmp_res[size]=Byte.MIN_VALUE;
 				
 				this.entradas.add(entrada);
-				this.secuenciaOps=tmp;
-				this.result=tmp2;
+				this.secuenciaOps=tmp_ops;
+				this.result=tmp_res;
 			}else {
 				this.entradas.add(entrada);
 				this.secuenciaOps[size]=op;

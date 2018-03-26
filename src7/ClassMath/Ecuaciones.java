@@ -15,7 +15,7 @@ public class Ecuaciones {
 	}
 
 	
-	public double ecu5(double[] xs) {
+	public double ecu4(double[] xs) {
 		double result = 0.0;
 		double xi;
 		
@@ -32,7 +32,7 @@ public class Ecuaciones {
 	}
 	
 	
-	public double ecu4(double[] xs) {
+	public double ecu3(double[] xs) {
 		double x1=xs[0];
 		double x2=xs[1];
 		int top=(int)xs[2];
@@ -51,7 +51,7 @@ public class Ecuaciones {
 	}
 	
 	
-	public double ecu3(double[] xs) {
+	public double ecu2(double[] xs) {
 		double x1=xs[0];
 		double x2=xs[1];
 		 		
@@ -59,7 +59,7 @@ public class Ecuaciones {
 	}
 	
 	
-	public double ecu2(double[] entrada) {
+	public double ecu1(double[] entrada) {
 		double x1=entrada[0];
 		double x2=entrada[1];
 		double a=Math.sqrt(Math.abs(x2+(x1/2.0)+47));
@@ -67,7 +67,7 @@ public class Ecuaciones {
 		return -(x2+47)*Math.sin(a)-x1*Math.sin(b);
 	}
 	
-	public double ecu1(double[] entrada) {
+	public double ecu0(double[] entrada) {
 		double x=entrada[0];
 		x=truncate(x, pres);
 		//System.out.println("entrada: "+x);
@@ -81,7 +81,7 @@ public class Ecuaciones {
 	}
 
 
-	public double ecu6(double[] entrada) {
+	public double ecu5(double[] entrada) {
 		// TODO Auto-generated method stub
 		double x=1;
 		for(int i=0; i<entrada.length; i++) {
@@ -90,7 +90,7 @@ public class Ecuaciones {
 		return x;
 	}
 	
-	public double ecu7(double[] entrada) {
+	public double ecu6(double[] entrada) {
 		// TODO Auto-generated method stub
 		double x=0;
 		for(int i=0; i<entrada.length; i++) {
