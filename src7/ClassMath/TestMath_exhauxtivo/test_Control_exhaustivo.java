@@ -36,11 +36,13 @@ public class test_Control_exhaustivo {
 
 		assertNotNull("should not be null", new ControlMath(decisiones,  new double[decisiones.length], entradas));	
 
-		//se testea la funcion con un numero aleatorio
-		int op=(int)Utils.getRandomArbitrary(0, 7);
-		ControlMath object=new ControlMath(decisiones, new double[decisiones.length], entradas);
-		double[] entrada=Util.generaEntrada(inf[op]);
-		assertEquals(object.select(entrada, op)+"",object.select(entrada, op)+"");
+		//exhaustivo
+		for(int op=0;op<inf.length;op++) {
+			ControlMath object=new ControlMath(decisiones, new double[decisiones.length], entradas);
+			double[] entrada=Util.generaEntrada(inf[op]);
+			assertEquals(object.select(entrada, op)+"",object.select(entrada, op)+"");
+		}
+		
 
 	}
 }
