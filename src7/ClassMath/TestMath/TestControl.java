@@ -34,6 +34,8 @@ public class TestControl {
 				
 		assertNotNull("should not be null", 
 				new ControlMath(decisiones, new double[decisiones.length], entradas));	
+		assertNotNull("should not be null", 
+				new ControlMath());	
 		
 		//se testea la funcion con un numero aleatorio
 		int op=(int)Utils.getRandomArbitrary(0, 7);

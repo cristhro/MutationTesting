@@ -64,7 +64,7 @@ public class Vista {
 	
 	public int[] add(int op, double[] entrada){
 		//se expande el tama�o de la list 
-		if(op>maxOp) {
+		if(op>maxOp || op <0 || entrada==null) {
 			System.out.println("Error de argumento1");
 			return secuenciaOps;
 		}else {

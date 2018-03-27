@@ -27,7 +27,7 @@ public class TestVista {
 			entradas.add(Util.generaEntrada(vista.getArgEcus(op)));
 		}
 		
-		
+		 
 		/**
 		 *parte de testing , como es aleatorio, solamente cubre todas las funciones, no todas las sentencias en cada funcion
 		 */

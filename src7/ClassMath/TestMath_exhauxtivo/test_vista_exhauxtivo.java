@@ -23,7 +23,7 @@ public class test_vista_exhauxtivo {
 		/*
 		 * inicializar datos necesarios
 		 */
-		int decisiones[] = {-1,0,1,2,3,4,5,6,3,4,5,6};
+		int decisiones[] = {-1,0,1,2,3,4,5,6,3,4,5,6,7};
 		LinkedList<double[]> entradas=new LinkedList<double[]>();
 		Vista vista=new Vista();
 		int max=vista.getNumOps();
@@ -37,11 +37,8 @@ public class test_vista_exhauxtivo {
 			//System.out.println("op: "+op);
 			
 			double[] a=Util.generaEntrada(vista.getArgEcus(decisiones[op]));
-			//System.out.println("longitud de entrada: "+a.length);
 			assertArrayEquals(new Vista().add(decisiones[op],a), new Vista().add(decisiones[op],a));
 
-			assertArrayEquals(new Vista(decisiones,entradas).add(decisiones[op],a), 
-					new Vista(decisiones,entradas).add(decisiones[op],a));
 			assertArrayEquals(new Vista(decisiones,entradas).add(decisiones[op],a), 
 					new Vista(decisiones,entradas).add(decisiones[op],a));
 			
@@ -64,10 +61,14 @@ public class test_vista_exhauxtivo {
 		assertNotNull("should not be null", new Vista(decisiones,null));	
 		assertNotNull("should not be null", new Vista());	
 		
+		assertArrayEquals(new Vista(decisiones,entradas).add(-10,null), 
+				new Vista(decisiones,entradas).add(-10,null));
+		assertArrayEquals(new Vista(decisiones,entradas).add(100,null), 
+				new Vista(decisiones,entradas).add(100,null));
 		assertEquals(new Vista(decisiones,entradas).clearResult(),new Vista(decisiones,entradas).clearResult());
-		assertEquals(new Vista(null,entradas).clearResult(),new Vista(decisiones,entradas).clearResult());
-		assertEquals(new Vista(decisiones,null).clearResult(),new Vista(decisiones,entradas).clearResult());
-		assertEquals(new Vista(null,null).clearResult(),new Vista(decisiones,entradas).clearResult());
+		assertEquals(new Vista(null,entradas).clearResult(),new Vista(null,entradas).clearResult());
+		assertEquals(new Vista(decisiones,null).clearResult(),new Vista(decisiones,null).clearResult());
+		assertEquals(new Vista(null,null).clearResult(),new Vista(null,null).clearResult());
 
 		
 		assertEquals(new Vista(decisiones,entradas).mostrarResult(),new Vista(decisiones,entradas).mostrarResult());
