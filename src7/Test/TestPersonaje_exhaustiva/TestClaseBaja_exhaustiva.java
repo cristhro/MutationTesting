@@ -38,10 +38,15 @@ public class TestClaseBaja_exhaustiva {
 		assertEquals(a.getHouse(),a.getHouse());
 		assertEquals(a.getNumHouse(),a.getNumHouse());
 		assertEquals(a.setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234,"azul")),a.setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234,"azul")));
-		assertEquals(a.setHouse(house),a.setHouse(house));
+		assertEquals(a.setCoche(null),a.setCoche(null));
+		assertEquals(a.getCoche(),a.getCoche());
+		assertEquals(a.setHouse(house),a.setHouse(house)); 
+		assertEquals(a.setHouse(null),a.setHouse(null));
 		assertEquals(new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")), 
 					 new ClaseBaja(new House(figura3D,new Posicion(2,3),"fdi"),"pepe", "alonso", 0, false, "12345").addHouse(new House(figura3D,new Posicion(20,30),"casa de campo")));
 
+		a.setCoche(new Coche(ruedas,sillas,cuerpo,"mercedes",1234,"azul"));
+		assertEquals(a.getNumCoche(),a.getNumCoche());
 		//fail("Not yet implemented");
 	}
 

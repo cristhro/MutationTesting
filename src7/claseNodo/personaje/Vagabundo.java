@@ -11,6 +11,10 @@ public class Vagabundo extends Persona{
 
 	public Vagabundo(String nombre, String apellidos, int edad, boolean casado, String dni) {
 		super(nombre, apellidos, edad, casado, dni);
+
+		if(edad <0) {
+			this.setEdad(10);
+		}
 		// TODO Auto-generated constructor stub
 	}
 
