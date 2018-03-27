@@ -49,9 +49,9 @@ public class Esfera implements Figura3D{
 	}
 
 	@Override
-	public <T> T getFiguraBase() {
+	public String getFiguraBase() {
 		// TODO Auto-generated method stub
-		return null;
+		return "no tiene base";
 	}
 
 	public Double setRadio(double i) {

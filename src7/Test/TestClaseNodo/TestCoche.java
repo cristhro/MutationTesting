@@ -19,6 +19,7 @@ public class TestCoche {
 		Circulo[] ruedas= {new Circulo(20),new Circulo(22),new Circulo(22),new Circulo(20)};
 		Cuadrado[] sillas= {new Cuadrado(1),new Cuadrado(1),new Cuadrado(1),new Cuadrado(1)};
 		assertNotNull("should not be null", new Coche(ruedas,sillas,null,"honda",1234,"negro"));
+		assertNotNull("should not be null",new Coche( new Coche(ruedas,sillas,null,"honda",1234,"negro")));
 		Cubo cuerpo=new Cubo(new Cuadrado(2),12);
 		Coche a=new Coche(ruedas,sillas,cuerpo,"honda",1234,"negro");
 		assertEquals(a.getColor(),new Coche(ruedas,sillas,cuerpo,"honda",1234,"negro").getColor());

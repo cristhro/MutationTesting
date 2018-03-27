@@ -23,7 +23,6 @@ public class Test3D_mas_valor {
 		for(int i=-100; i<500;i++) {
 			assertNotNull("should not be null", new Cilindro(new Circulo(i), i));
 			assertEquals( new Cilindro(new Circulo(i), i).toString(), new Cilindro(new Circulo(i), i).toString());
-			assertEquals(new Cilindro( new Cilindro(new Circulo(i), i)).toString(),new Cilindro( new Cilindro(new Circulo(i), i)).toString());
 			assertEquals(""+ new Cilindro(new Circulo(i), i).setAltura(i),""+ new Cilindro(new Circulo(i), i).setAltura(i));
 			assertEquals(new Cilindro(new Circulo(i), i).getArea3D()+"",new Cilindro(new Circulo(i), i).getArea3D()+"");
 			assertEquals(new Cilindro(new Circulo(i), i).getVolumen()+"",new Cilindro(new Circulo(i), i).getVolumen()+"");

@@ -33,9 +33,9 @@ public class Tetraedro implements Figura3D  {
 	}
 
 	
-	public Rectangulo getFiguraBase() {
+	public String getFiguraBase() {
 		// TODO Auto-generated method stub
-		return rectangulo;
+		return rectangulo.toString();
 	}
 
 	

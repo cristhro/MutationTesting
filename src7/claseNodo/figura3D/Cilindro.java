@@ -18,11 +18,7 @@ public class Cilindro implements Figura3D {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Cilindro(Cilindro c) {
-		this.c=c.getFiguraBase();
-		this.altura=c.altura;
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	
 	public double getArea3D() {
@@ -43,9 +39,9 @@ public class Cilindro implements Figura3D {
 	}
 
 	
-	public Circulo getFiguraBase() {
+	public String getFiguraBase() {
 		// TODO Auto-generated method stub
-		return c;
+		return c.toString();
 	}
 
 	

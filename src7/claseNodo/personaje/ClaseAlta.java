@@ -84,6 +84,42 @@ public class ClaseAlta extends Persona{
 		return s;
 	}
 	
+	public String setCoche(Coche coche2) {
+		// TODO Auto-generated method stub
+		if(coche2!=null) {
+			if(this.coches!=null && this.coches[0]!=null) {
+				return this.coches[0].toString();
+			}else {
+				return "no tiene coche";
+			}
+		}else {
+			if(this.coches!=null && this.coches[0]!=null) {
+				this.coches[0]=coche2;
+				return this.coches[0].toString();
+			}else {
+				return "no tiene coche";
+			}
+		}
+	
+	}
+	
+	public String setHouse(House nuevo) {
+		if(nuevo!=null) {
+			if(houses!=null && houses[0]!=null) {
+				this.houses[0]=nuevo;
+				return this.houses[0].toString();
+			}else {
+				return "no ha sido poder construir una casa";
+			}
+			
+		}else {
+			if(houses!=null && houses[0]!=null) {
+				return this.houses[0].toString();
+			}else {
+				return "no ha sido poder construir una casa";
+			}
+		}
+	}
 	
 	public String toString() {
 		return "ClaseAlta [houses=" + Arrays.toString(houses) + ", coches=" + Arrays.toString(coches) + ", getHouse()="

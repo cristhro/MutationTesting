@@ -18,7 +18,6 @@ public class Test3D {
 	public void test1() {
 		assertNotNull("should not be null", new Cilindro(new Circulo(22), 33));
 		assertEquals( new Cilindro(new Circulo(22), 33).toString(), new Cilindro(new Circulo(22), 33).toString());
-		assertEquals(new Cilindro( new Cilindro(new Circulo(22), 33)).toString(),new Cilindro( new Cilindro(new Circulo(22), 33)).toString());
 		assertEquals(""+ new Cilindro(new Circulo(22), 33).setAltura(55),""+ new Cilindro(new Circulo(22), 33).setAltura(55));
 		assertEquals(new Cilindro(new Circulo(1), 33).getArea3D()+"",new Cilindro(new Circulo(1), 33).getArea3D()+"");
 		assertEquals(new Cilindro(new Circulo(1), 33).getVolumen()+"",new Cilindro(new Circulo(1), 33).getVolumen()+"");

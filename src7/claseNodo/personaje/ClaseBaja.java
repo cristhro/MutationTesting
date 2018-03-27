@@ -44,7 +44,7 @@ public class ClaseBaja extends Persona{
 		}
 	}
 
-	public House[] addHouse(House nueva) {
+	public String addHouse(House nueva) {
 		House[] tmp=new House[this.house.length+1];
 		for(int i=0;i<this.house.length;i++) {
 			tmp[i]=this.house[i];
@@ -53,7 +53,12 @@ public class ClaseBaja extends Persona{
 		tmp[tmp.length-1]=nueva;
 		this.house=tmp;
 		
-		return this.house;
+		String s="";
+		for(int i=0;i<house.length;i++) {
+			s+=house[i].toString();
+		}
+		System.out.println(s);
+		return s;
 	}
 	
 	@Override

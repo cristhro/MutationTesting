@@ -4,5 +4,5 @@ public interface Figura3D {
 	public double getArea3D();
 	public double getAltura();
 	public double getVolumen();
-	public <T> T getFiguraBase();
+	public String getFiguraBase();
 }

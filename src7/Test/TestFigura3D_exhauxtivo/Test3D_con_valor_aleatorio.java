@@ -25,8 +25,6 @@ public class Test3D_con_valor_aleatorio {
 				assertEquals( new Cilindro(new Circulo(x), x).toString(), new Cilindro(new Circulo(x), x).toString());
 				x=Utils.getRandomArbitrary(-9999,9999);
 
-				assertEquals(new Cilindro( new Cilindro(new Circulo(x), x)).toString(),new Cilindro( new Cilindro(new Circulo(x), x)).toString());
-				x=Utils.getRandomArbitrary(-9999,9999);
 
 				assertEquals(""+ new Cilindro(new Circulo(x), x).setAltura(x),""+ new Cilindro(new Circulo(x), x).setAltura(x));
 				x=Utils.getRandomArbitrary(-9999,9999);

@@ -93,6 +93,23 @@ public class ClaseMedia extends Persona{
 		}
 	
 	}
+	
+	public String addCoche(Coche nueva) {
+		Coche[] tmp=new Coche[this.house.length+1];
+		for(int i=0;i<this.house.length;i++) {
+			tmp[i]=coche[i];
+		}
+		
+		tmp[tmp.length-1]=nueva;
+		this.coche=tmp;
+		
+		String s="";
+		for(int i=0; i<this.coche.length;i++) {
+			s+=this.coche[i].toString();
+		}
+		
+		return s;
+	}
 
 	
 }

@@ -35,9 +35,9 @@ public class Cubo implements Figura3D{
 	}
 
 	
-	public Cuadrado getFiguraBase() {
+	public String getFiguraBase() {
 		// TODO Auto-generated method stub
-		return cuadrado;
+		return cuadrado.toString();
 	}
 	
 	public String toString() {
