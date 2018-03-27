@@ -1,6 +1,6 @@
 package ClassMath.TestMath;
 
-import Test.Utils;
+import TestClassNodo.Utils;
 
 public class Util {
 	public static double[] generaEntrada(int size) {

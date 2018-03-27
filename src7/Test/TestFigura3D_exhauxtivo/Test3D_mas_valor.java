@@ -17,7 +17,9 @@ public class Test3D_mas_valor {
 
 
 
-
+/*
+ * Cilindro
+ */
 	@Test
 	public void test1() {
 		for(int i=-100; i<500;i++) {
@@ -26,11 +28,20 @@ public class Test3D_mas_valor {
 			assertEquals(""+ new Cilindro(new Circulo(i), i).setAltura(i),""+ new Cilindro(new Circulo(i), i).setAltura(i));
 			assertEquals(new Cilindro(new Circulo(i), i).getArea3D()+"",new Cilindro(new Circulo(i), i).getArea3D()+"");
 			assertEquals(new Cilindro(new Circulo(i), i).getVolumen()+"",new Cilindro(new Circulo(i), i).getVolumen()+"");
+			
+			assertNotNull("should not be null", new Cilindro(null, i));
+			assertEquals( new Cilindro(null, i).toString(), new Cilindro(null, i).toString());
+			assertEquals(""+ new Cilindro(null, i).setAltura(i),""+ new Cilindro(null, i).setAltura(i));
+			assertEquals(new Cilindro(null, i).getArea3D()+"",new Cilindro(null, i).getArea3D()+"");
+			assertEquals(new Cilindro(null, i).getVolumen()+"",new Cilindro(null, i).getVolumen()+"");
 
 		}
 	}
 
 
+	/*
+	 * Cubo
+	 */
 	@Test
 	public void test2() {
 		for(int i=-100; i<500;i++) {
@@ -45,6 +56,9 @@ public class Test3D_mas_valor {
 		}
 	}
 
+	/*
+	 * Esfera
+	 */
 	@Test
 	public void test3() {
 		for(int i=-100; i<500;i++) {
@@ -59,6 +73,9 @@ public class Test3D_mas_valor {
 		}
 	}
 
+	/*
+	 * Tetraedro
+	 */
 	@Test
 	public void test4() {
 		for(int i=-100; i<500;i++) {

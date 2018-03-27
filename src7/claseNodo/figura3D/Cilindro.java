@@ -23,7 +23,12 @@ public class Cilindro implements Figura3D {
 	
 	public double getArea3D() {
 		// TODO Auto-generated method stub
-		return 2*c.getArea()+c.perimetro()*this.altura;
+		if(c==null) {
+			return 0;
+		}else {
+			return 2*c.getArea()+c.perimetro()*this.altura;
+
+		}
 	}
 
 	
@@ -35,13 +40,23 @@ public class Cilindro implements Figura3D {
 	
 	public double getVolumen() {
 		// TODO Auto-generated method stub
-		return c.getArea()*this.altura;
+		if(c!=null) {
+			return c.getArea()*this.altura;
+		}else {
+			return 0;
+		}
+		
 	}
 
 	
 	public String getFiguraBase() {
 		// TODO Auto-generated method stub
-		return c.toString();
+		if(c!=null) {
+			return c.toString();
+
+		}else {
+			return "";
+		}
 	}
 
 	

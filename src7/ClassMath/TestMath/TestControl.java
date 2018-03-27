@@ -2,7 +2,8 @@ package ClassMath.TestMath;
 
 import ClassMath.ControlMath;
 import ClassMath.Vista;
-import Test.Utils;
+import TestClassNodo.Utils;
+
 import org.junit.Test;
 
 import java.util.LinkedList;

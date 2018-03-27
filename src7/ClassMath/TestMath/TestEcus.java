@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import ClassMath.Ecuaciones;
 import ClassMath.Vista;
-import Test.Utils;
+import TestClassNodo.Utils;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

@@ -2,7 +2,8 @@ package ClassMath.TestMath_exhauxtivo;
 
 import ClassMath.Vista;
 import ClassMath.TestMath.Util;
-import Test.Utils;
+import TestClassNodo.Utils;
+
 import org.junit.Test;
 
 import java.util.LinkedList;

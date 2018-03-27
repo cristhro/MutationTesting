@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Test.Utils;
+import TestClassNodo.Utils;
 import claseNodo.figura2D.Circulo;
 import claseNodo.figura2D.Cuadrado;
 import claseNodo.figura2D.Rectangulo;
