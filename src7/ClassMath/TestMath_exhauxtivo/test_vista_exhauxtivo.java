@@ -2,7 +2,6 @@ package ClassMath.TestMath_exhauxtivo;
 
 import ClassMath.Vista;
 import ClassMath.TestMath.Util;
-import TestClassNodo.Utils;
 
 import org.junit.Test;
 
@@ -11,6 +10,9 @@ import java.util.LinkedList;
 import static org.junit.Assert.*;
 
 public class test_vista_exhauxtivo {
+	 public static double getRandomArbitrary(int min, int max) {
+			return Math.random() * (max - min) + min;
+		}
 
 	/*
 	 * se usa la funcion generaEntrada. Es decir, el numero de entrada para las funciones que no restringe nuemro de

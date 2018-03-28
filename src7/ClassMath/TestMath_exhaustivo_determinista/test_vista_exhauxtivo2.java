@@ -2,7 +2,6 @@ package ClassMath.TestMath_exhaustivo_determinista;
 
 import ClassMath.Vista;
 import ClassMath.TestMath.Util;
-import TestClassNodo.Utils;
 
 import org.junit.Test;
 

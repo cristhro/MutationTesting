@@ -2,7 +2,6 @@ package ClassMath.TestMath;
 
 import ClassMath.ControlMath;
 import ClassMath.Vista;
-import TestClassNodo.Utils;
 
 import org.junit.Test;
 
@@ -12,7 +11,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class TestControl {
-	
+	 public static double getRandomArbitrary(int min, int max) {
+			return Math.random() * (max - min) + min;
+		}
 
 	@Test
 	public void test() {
@@ -39,7 +40,7 @@ public class TestControl {
 				new ControlMath());	
 		
 		//se testea la funcion con un numero aleatorio
-		int op=(int)Utils.getRandomArbitrary(0, 7);
+		int op=(int)getRandomArbitrary(0, 7);
 		ControlMath object=new ControlMath(decisiones, new double[decisiones.length], entradas);
 		double[] entrada=Util.generaEntrada(vista.getArgEcus(decisiones[op]));
 		assertEquals(object.select(entrada, op)+"",object.select(entrada, op)+"");

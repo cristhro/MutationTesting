@@ -1,7 +1,7 @@
-package TestClassNodo;
+package Test;
 
 
-public class Utils {
+public class Utils1 {
 		
 	// Returns random between [ min, max )
 		public static double getRandomArbitrary(int min, int max) {

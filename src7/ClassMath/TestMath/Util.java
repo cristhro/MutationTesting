@@ -1,20 +1,23 @@
 package ClassMath.TestMath;
 
-import TestClassNodo.Utils;
 
 public class Util {
+	 public static double getRandomArbitrary(int min, int max) {
+			return Math.random() * (max - min) + min;
+		}
+	 
 	public static double[] generaEntrada(int size) {
 		if(size>0) {
 			double[] entrada= new double[size];
 			for(int i=0; i<size;i++) {
-				entrada[i]=Utils.getRandomArbitrary(0, 99);
+				entrada[i]=getRandomArbitrary(0, 99);
 			}
 			return entrada;
 		}else {
-			int len=(int) Utils.getRandomArbitrary(0, 99);
+			int len=(int) getRandomArbitrary(0, 99);
 			double[] entrada= new double[len];
 			for(int i=0; i<len;i++) {
-				entrada[i]=Utils.getRandomArbitrary(0, 99);
+				entrada[i]=getRandomArbitrary(0, 99);
 			}
 			return entrada;
 		}
@@ -28,14 +31,14 @@ public class Util {
 		if(size>0) {
 			double[] entrada= new double[size];
 			for(int i=0; i<size;i++) {
-				entrada[i]=Utils.getRandomArbitrary(0, 99);
+				entrada[i]=getRandomArbitrary(0, 99);
 			}
 			return entrada;
 		}else {
 			int len=default_num;
 			double[] entrada= new double[len];
 			for(int i=0; i<len;i++) {
-				entrada[i]=Utils.getRandomArbitrary(0, 99);
+				entrada[i]=getRandomArbitrary(0, 99);
 			}
 			return entrada;
 		}

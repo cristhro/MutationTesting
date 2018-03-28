@@ -5,12 +5,14 @@ import org.junit.Test;
 import ClassMath.Ecuaciones;
 import ClassMath.Vista;
 import ClassMath.TestMath.Util;
-import TestClassNodo.Utils;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class TestEcus_exhaustivo {
+	 public static double getRandomArbitrary(int min, int max) {
+			return Math.random() * (max - min) + min;
+		}
 	
 
 	/*

@@ -20,7 +20,7 @@ public class TestClaseBaja_exhaustiva {
 	 * ClaseBaja
 	 */
 	@Test
-	public void test2() {
+	public void test2() { 
 		Cubo cubo=new Cubo(new Cuadrado(22.2),12.8);
 		Figura3D figura3D[]={cubo};
 		Circulo[] ruedas= {new Circulo(20),new Circulo(22),new Circulo(22),new Circulo(20)};

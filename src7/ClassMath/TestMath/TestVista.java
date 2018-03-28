@@ -1,7 +1,6 @@
 package ClassMath.TestMath;
 
 import ClassMath.Vista;
-import TestClassNodo.Utils;
 
 import org.junit.Test;
 
@@ -11,7 +10,9 @@ import static org.junit.Assert.*;
 
 public class TestVista {
 
-	
+	 public static double getRandomArbitrary(int min, int max) {
+			return Math.random() * (max - min) + min;
+		}
 	
 
 	@Test
@@ -34,7 +35,7 @@ public class TestVista {
 		 */
 		
 		//aleatorio
-		int op=(int)Utils.getRandomArbitrary(-100, 788);
+		int op=(int) getRandomArbitrary(-100, 788);
 		
 		double[] a=Util.generaEntrada(vista.getArgEcus(op));
 		//System.out.println("a length: "+a.length);
@@ -46,7 +47,7 @@ public class TestVista {
 		assertArrayEquals(new Vista(decisiones,entradas).add(op,a), 
 				new Vista(decisiones,entradas).add(op,a));
 		assertEquals(new Vista(decisiones,entradas).check()+"",new Vista(decisiones,entradas).check()+"");
-		int res=(int)Utils.getRandomArbitrary(0, 7);
+		int res=(int)getRandomArbitrary(0, 7);
 		assertEquals(new Vista(decisiones,entradas).getResult(res),new Vista(decisiones,entradas).getResult(res));
 
 		
