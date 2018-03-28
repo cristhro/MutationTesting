@@ -96,15 +96,12 @@ public class House implements Direccion {
 	}
 
 	private String getListFigura3D() {
-		if(this.figura3D!=null) {
+		
 			String s="";
 			for(int i=0;i<this.figura3D.length;i++) {
 				s+=this.figura3D[i].toString();
 			}
 			return s;
-		}
-		
-		return "no tiene figuras aun";
 	}
 
 

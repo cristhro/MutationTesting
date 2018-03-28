@@ -1,4 +1,4 @@
-package Test.TestClaseNodo;
+package Test.TestClaseNodo_otras;
 
 import claseNodo.Coche;
 import claseNodo.House;

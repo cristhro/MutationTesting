@@ -1,4 +1,4 @@
-package Test.TestClaseNodo;
+package Test.TestClaseNodo_otras;
 
 import static org.junit.Assert.*;
 

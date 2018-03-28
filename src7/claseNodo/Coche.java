@@ -37,11 +37,16 @@ public class Coche {
 	}
 
 	public String getRueda() {
-		String s="";
-		for(int i=0; i<this.rueda.length;i++) {
-			s+=this.rueda[i].toString();
+		if(this.rueda==null) {
+			return "no tiene rueda";
+		}else {
+			String s="";
+			for(int i=0; i<this.rueda.length;i++) {
+				s+=this.rueda[i].toString();
+			}
+			return s;
 		}
-		return s;
+		
 	}
 
 	public String addRueda(Circulo rueda) {
@@ -51,9 +56,9 @@ public class Coche {
 				tmp[i]=this.rueda[i];
 			}
 			tmp[this.rueda.length]=rueda;
-			
+
 			this.rueda=tmp;
-			
+
 		}else {
 			return "no tiene rueda";
 		}
@@ -67,6 +72,10 @@ public class Coche {
 	}
 
 	public String getSillas() {
+		if(this.sillas==null) {
+			return "no tiene silla";
+		}
+		
 		String s="";
 		for(int i=0; i<this.sillas.length;i++) {
 			s+=this.sillas[i].toString();
@@ -95,7 +104,7 @@ public class Coche {
 
 	}
 
-	
+
 	public String getCuerpo() {
 		return cuerpo.toString();
 	}
@@ -126,21 +135,14 @@ public class Coche {
 	}
 
 	public int getMatricula() {
-		if(this.matricula!=0) {
-			return matricula;
-		}else {
-			return this.matricula;
-		}
-
+		return matricula;
 	}
 
-	public int setMatricula(int matricula) {
-		if(this.matricula!=0) {
-			this.matricula=matricula;
-			return matricula;
-		}else {
-			return this.matricula;
-		}	
+	public boolean setMatricula(int matricula) {
+
+		this.matricula=matricula;
+		return true;
+
 	}
 
 	public String getMarca() {
@@ -152,20 +154,21 @@ public class Coche {
 		return this.marca;
 	}
 
-	private String getListRuedas() {
+
+
+	public String toString() {
+		String s="";
 		if(this.rueda!=null) {
-			String s="";
 			for(int i=0;i<this.rueda.length;i++) {
 				s+=this.rueda[i].toString();
 			}
-			return s;
+		}else {
+			s="no tiene rueda aun";
 		}
-		
-		return "no tiene rueda aun";
-	}
 
-	public String toString() {
-		return "Coche [rueda=" + getListRuedas() + ", sillas=" + Arrays.toString(sillas) + ", cuerpo=" + cuerpo
+
+
+		return "Coche [rueda=" + s + ", sillas=" + Arrays.toString(sillas) + ", cuerpo=" + cuerpo
 				+ ", color=" + color + ", matricula=" + matricula + ", marca=" + marca + ", getRueda()="
 				+ getRueda() + ", getSillas()=" + getSillas() + ", getCuerpo()="
 				+ getCuerpo() + ", getColor()=" + getColor() + ", getMatricula()=" + getMatricula() + ", getMarca()="

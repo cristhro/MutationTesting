@@ -12,7 +12,7 @@ import claseNodo.figura3D.Cubo;
 import claseNodo.figura3D.Esfera;
 import claseNodo.figura3D.Tetraedro;
 
-public class Test3D_mas_valor {
+public class Test3D_exhaustiva {
 
 
 
