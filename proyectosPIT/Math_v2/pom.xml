@@ -46,10 +46,10 @@
                 <version>1.1.5</version>
                 <configuration>
                     <targetClasses>
-                        <param>*</param>
+                        <param>XXXCLASES*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>*</param>
+                        <param>XXXTESTS*</param>
                     </targetTests>
                 </configuration>
             </plugin>

@@ -13,5 +13,5 @@ fi
 mkdir $DIR_RESULT;
 
 # Ejecutamos el programa y redirigimos la salida a results
-mvn verify org.pitest:pitest-maven:mutationCoverage #| grep -i 'mutations Killed' > ./$DIR_RESULT/result.txt;
+mvn verify org.pitest:pitest-maven:mutationCoverage | grep -i 'mutations Killed' > ./$DIR_RESULT/result.txt;
 #mvn verify org.pitest:pitest-maven:mutationCoverage >> ./$DIR_RESULT/result_$HORA.txt;
