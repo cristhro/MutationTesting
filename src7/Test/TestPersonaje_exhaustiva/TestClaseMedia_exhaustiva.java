@@ -42,11 +42,24 @@ public class TestClaseMedia_exhaustiva {
 		assertEquals(a.getHouse(),""+new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").getHouse());
 		assertEquals(a.getCoche(),""+new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").getCoche());
 		assertEquals(""+a.setCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000,"blanca")),new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").setCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000,"blanca")) );
+		assertEquals(""+a.setCoche(null),a.setCoche(null)); 
 		assertEquals(""+a.setHouse(new House(figura3D,new Posicion(20,30),"casa de campo")),new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").setHouse(new House(figura3D,new Posicion(20,30),"casa de campo"))
 				);
+		ClaseMedia no_coche_house=new ClaseMedia(null,null, "pepe", "alonso", 40, false, "12345");
+		assertEquals(no_coche_house.getHouse(),no_coche_house.getHouse()); 
+		assertEquals(no_coche_house.getCoche(),no_coche_house.getCoche());
+		assertEquals(no_coche_house.getNumHouse(),no_coche_house.getNumHouse()); 
+		assertEquals(no_coche_house.getNumCoche(),no_coche_house.getNumCoche());
+		assertEquals(""+no_coche_house.setCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000,"blanca")),no_coche_house.setCoche(new Coche(ruedas,sillas,cuerpo,"honda",1000,"blanca")) );
+		assertEquals(""+no_coche_house.setCoche(null),a.setCoche(null)); 
+		assertEquals(""+no_coche_house.setHouse(new House(figura3D,new Posicion(20,30),"casa de campo")),no_coche_house.setHouse(new House(figura3D,new Posicion(20,30),"casa de campo"))
+				); 
+		assertEquals(""+no_coche_house.setHouse(null),no_coche_house.setHouse(null));
+		
 		Coche coche2= new Coche(ruedas,sillas,cuerpo,"mazida",1024,"blanco");
 		assertEquals(new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").addCoche(coche2),
 				new ClaseMedia(coche,house, "pepe", "alonso", 40, false, "12345").addCoche(coche2));
+		
 		//fail("Not yet implemented");
 
 	}
