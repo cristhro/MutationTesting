@@ -7,6 +7,7 @@ public class Util {
 		}
 	 
 	public static double[] generaEntrada(int size) {
+		int defaultNum=100;
 		if(size>0) {
 			double[] entrada= new double[size];
 			for(int i=0; i<size;i++) {
@@ -14,7 +15,7 @@ public class Util {
 			}
 			return entrada;
 		}else {
-			int len=(int) getRandomArbitrary(0, 99);
+			int len=(int) getRandomArbitrary(defaultNum, defaultNum+99);
 			double[] entrada= new double[len];
 			for(int i=0; i<len;i++) {
 				entrada[i]=getRandomArbitrary(0, 99);
