@@ -8,12 +8,10 @@ fi
 
 mkdir $RESULTADOS
 
-for testFile in $(ls  ./tests)
+for testFile in $(ls  ./testsPoms)
 do
-    echo $testFile;
     rm $PATHTEST;
-    cp ./tests/$testFile $PATHTEST;
-    sh run.sh;
-    cp ./results/result.txt $RESULTADOS/result_$testFile.txt;
+    cp ./tests/$testFile pom.xml;
+    sh run.sh >> resultados.txt;
 done
 echo "Terminado"
