@@ -2,16 +2,15 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 
 public  class  GeneraFichero {
-	static void crear(String s) {
+	static void crear(String route, String nomFichero,String x ) {
 		FileWriter fichero = null;
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("C:/Users/yu/eclipse-workspace/TFG/GeneradorFicheroJava/result");
+        	String fin_route=route+"/"+nomFichero;
+            fichero = new FileWriter(fin_route);
             pw = new PrintWriter(fichero);
-
-            for (int i = 0; i < 10; i++)
-                pw.println("Linea " + i);
+                pw.println(x);
 
         } catch (Exception e) {
             e.printStackTrace();

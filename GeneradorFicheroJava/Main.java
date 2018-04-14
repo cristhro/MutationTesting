@@ -4,17 +4,17 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int num_ifs=2;
-		int num_while=2;
-		int size_while=10;
-		int num_for=2;
-		int size_for=100;
+		int num_ifs=1;
+		int num_while=1;
+		int size_while=1;
+		int num_for=1;
+		int size_for=5;
 		int size_cond=2;
 		int size_expLogics=2;
 		int size_expArit=2;
 		double[] test_inputs= {1,2,3,4,5,6,7,8,9};
 		
-		Generardor g=new Generardor(test_inputs, num_ifs, num_while, size_while,  num_for,  size_for, size_cond,
+		Generardor g=new Generardor("test1","C1",test_inputs, num_ifs, num_while, size_while,  num_for,  size_for, size_cond,
 				 size_expLogics, size_expArit);
 				
 		
@@ -36,13 +36,23 @@ public class Main {
 		//System.out.println("getNum: "+g.getNum());
 		//System.out.println("getBool: "+g.getBool());
 		
+		/*
 		
-		System.out.println("programa ");
 		System.out.println(g.s);
 		System.out.println("%%%%%%%%%%%%%%%%%");
-		System.out.println("programa test");
-		System.out.println(g.programa_test);
 		
+		System.out.println(g.programa_test);
+		*/
+		
+		String route="C:/Users/yu/eclipse-workspace/TFG/GeneradorFicheroJava";
+		GeneraFichero.crear(route,g.nom_test+".java",g.programa_test);
+		GeneraFichero.crear(route,g.nom_program+".java",g.s);
+		
+		
+		/*
+		double[] inputs={1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0};
+		C1 c1=new C1(inputs);
+		System.out.println("hola");*/
 		
 	};
 

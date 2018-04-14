@@ -9,9 +9,13 @@ public class Generardor {
 	private int contVar=0;//para evitar problema de declaracion de varible con los bucles
 	public String s="";
 	public String programa_test="";
-	public Generardor(double[] test_inputs,int num_ifs,int num_while,int size_while, int num_for, int size_for,int size_cond,
+	public String nom_test="";
+	public String nom_program="";
+	public String tipo="int ";
+	public Generardor(String nom_test,String nom_program,double[] test_inputs,int num_ifs,int num_while,int size_while, int num_for, int size_for,int size_cond,
 			int size_expLogics,int size_expArit) {
-
+		this.nom_program=nom_program;
+		this.nom_test=nom_test;
 		/*
 		 * generar programa testeador
 		 */
@@ -19,7 +23,7 @@ public class Generardor {
 				"\r\n" + 
 				"import java.util.ArrayList;\r\n" + 
 				"\r\n" + 
-				"public class Test {\r\n" + 
+				"public class "+nom_test+"{\r\n" + 
 				"\r\n" + 
 				"	@org.junit.Test\r\n" + 
 				"	public void test() {\r\n" + 
@@ -33,8 +37,8 @@ public class Generardor {
 		programa_test+="};\n";
 		
 		//funcion assert
-		programa_test+="assertArrayEquals(new C(inputs).get_result_num(),new C(inputs).get_result_num(),0);\r\n" + 
-				"		assertArrayEquals(new C(inputs).get_result_bool(),new C(inputs).get_result_bool());\r\n";
+		programa_test+="assertArrayEquals(new "+nom_program+"(inputs).get_result_num(),new "+nom_program+"(inputs).get_result_num(),0);\r\n" + 
+				"		assertArrayEquals(new "+nom_program+"(inputs).get_result_bool(),new "+nom_program+"(inputs).get_result_bool());\r\n";
 		//fin de funcion test
 		programa_test+="\n}";
 		//fin de clase programa_test
@@ -46,14 +50,14 @@ public class Generardor {
 		//declarar
 		s="import java.util.ArrayList;\r\n" + 
 				"\r\n" + 
-				"public class C {\r\n" + 
+				"public class "+nom_program +"{\r\n" + 
 				"	private int p_num=0;\r\n" + 
 				"	private ArrayList<Double> result_tmp_num=new ArrayList<Double>();\r\n" + 
 				"	private double[] result_final_num;\r\n" + 
 				"	private ArrayList<Boolean> result_tmp_bool=new ArrayList<Boolean>();\r\n" + 
 				"	private boolean[] result_final_bool;\r\n" + 
 				"	private double[] inputs_num;\r\n" + 
-				"	public C(double[] inputs_num) {\r\n" + 
+				"	public "+nom_program+"(double[] inputs_num) {\r\n" + 
 				"		this.inputs_num=inputs_num;\r\n" + 
 				"	}\n";
 
@@ -377,11 +381,11 @@ public class Generardor {
 
 			if(op=="<") {
 				declare_var=declare_var+" = 0"+";\n";
-				String finCond=var+op+num_iteracion+" "+"&&"+" "+exp_logics(size_cond);
+				String finCond=var+op+num_iteracion+" "+"&&"+" ("+exp_logics(size_cond)+")";
 				toReturn=declare_var+"while("+finCond+"){\n"+cuerpo+"\n"+var_suma+"\n}\n";
 			}else {
 				declare_var=declare_var+" = "+num_iteracion+";\n";
-				String finCond=var+op+"0 "+"&&"+" "+exp_logics(size_cond);
+				String finCond=var+op+"0 "+"&&"+" ("+exp_logics(size_cond)+")";
 				toReturn=declare_var+"while("+finCond+"){\n"+cuerpo+"\n"+var_resta+"\n}";
 			}
 
