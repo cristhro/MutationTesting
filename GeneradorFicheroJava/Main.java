@@ -36,8 +36,13 @@ public class Main {
 		//System.out.println("getNum: "+g.getNum());
 		//System.out.println("getBool: "+g.getBool());
 		
-		//System.out.println(g.programa_test);
-		GeneraFichero.crear("hola mundo");
+		
+		System.out.println("programa ");
+		System.out.println(g.s);
+		System.out.println("%%%%%%%%%%%%%%%%%");
+		System.out.println("programa test");
+		System.out.println(g.programa_test);
+		
 		
 	};
 
