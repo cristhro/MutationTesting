@@ -194,11 +194,6 @@ public class Generardor {
 		}
 
 
-
-
-
-
-
 		String s=(Math.random()>0.5 ? s1 : s2);
 		return  s;
 	}
