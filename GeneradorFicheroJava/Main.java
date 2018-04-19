@@ -7,7 +7,7 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		int num_ifs=(new Integer(argsx[0])).intValue();
-		int num_while=new Integer(argsx[1]).intValue();
+		int num_while=new Integer(argsx[1]).intValue(); 
 		int size_while=new Integer(argsx[2]).intValue();
 		int num_for=new Integer(argsx[3]).intValue();
 		int size_for=new Integer(argsx[4]).intValue();
