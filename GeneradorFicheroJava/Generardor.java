@@ -1,8 +1,11 @@
-import static org.junit.Assert.assertArrayEquals;
 
 /*
- * BUG: dentro del cuerpo de bucle For o While o de Ifs o Else no abarca
- * otro tipo de bucle o ifs con anidacion. O sea, sera el bucle simple
+ * BUG: 
+ * 1) dentro del cuerpo de bucle For o While o de Ifs o Else no abarca
+ * otro tipo de bucle o ifs con anidacion.
+ * 2) numero de expresiones simples seguidos por defecto sale 2
+ * 3)el valor de los operandos numericos esta en el rango de [1-100)
+ * 4)En el caso de una operacion de division, el denominador siempre es positivo mayor igual que 1
  */
 
 public class Generardor {
@@ -218,24 +221,6 @@ public class Generardor {
 	}
 
 	public String exp_logic() {
-		/*
-		String s1=""+getBool()+op_logic()+getBool();
-		String s2=" ("+getNum()+op_rel()+getNum()+") ";
-		String s3=" ("+getBool()+op_logic()+getBool()+") ";
-
-
-		switch((int)getRandomArbitrary(0, 3)) {
-		case 0:
-			return  s1;
-		case 1:
-			return  s2;
-		case 2:
-			return  s3;
-		default:
-			return  s1;
-		}
-		*/
-		//"(p_bool<inputs_b.length ? inputs_b[p_bool++] : true)"
 		String s2=" ("+getNum()+op_rel()+"(p_num<inputs_num.length ? inputs_num[p_num++] : 5)"+") ";
 		return s2;
 	}
@@ -256,7 +241,6 @@ public class Generardor {
 	 * num es numero de iteracio
 	 * 
 	 */
-	//(int)getRandomArbitrary(0, i);
 	public String condFor(int i) {
 		String var="i"+contVar;
 		contVar++;
@@ -285,10 +269,10 @@ public class Generardor {
 	 * 1 y 5
 	 */
 	public String condWhile() {
-		/*int x=(int)getRandomArbitrary(1, 6);
+		int x=(int)getRandomArbitrary(1, 6);
 		String s=(Math.random()>0.5 ?  exp_logic() :  exp_logics(x));
-*/
-		return   exp_logic();
+
+		return   s;
 	}
 
 	/*
@@ -301,7 +285,6 @@ public class Generardor {
 		int x=(int)getRandomArbitrary(1, 6);
 		String s= (Math.random()>0.5 ?  exp_logic() :  exp_logics(x));
 		
-		//String s="(p_bool<inputs_b.length ? inputs_b[p_bool++] : true) ";
 		return  s;
 	}
 
@@ -316,39 +299,7 @@ public class Generardor {
 		}
 	}
 
-	/*
-	 * si toca alguna funcion(x), x es entre [1,3)
-	 * pero de momento no lo uso es porque puede que pide mucha memoria 
-	 */
-	/*
-	public String EG_con_if() {
-		//While | for | exp_as | exp_logics | exp_a | exp_logic | ifs
-		String s;
-		switch((int)getRandomArbitrary(0, 6)) {
-		case 0:
-			s=  getWhile();
-		case 1:
-			s= getFor();
-		case 2:
-			s= exp_as((int)getRandomArbitrary(1,3));
-		case 3:
-			s=  exp_logics((int)getRandomArbitrary(1,3));
-		case 4:
-			s= exp_a();
-		case 5:
-			s= exp_logic();
-		case 6:
-			s= getIf((int)getRandomArbitrary(1,3));
-		default:
-			s= exp_a();
-
-		}
-
-		String expresion="="+s;
-		return  expresion);
-
-	}
-	 */
+	
 
 	public String getFors(int num_anidacion,int num_iteracion) {
 		if(num_anidacion == 0) {
@@ -391,77 +342,7 @@ public class Generardor {
 	}
 
 
-
-
-
-
-	/*
-	 * si toca alguna funcion(x), x es entre [1,3)
-	 * pero de momento no lo uso es porque puede que pide mucha memoria 
-	 */
-	/*
-	public String EG_con_if() {
-		//While | for | exp_as | exp_logics | exp_a | exp_logic | ifs
-		String s;
-		switch((int)getRandomArbitrary(0, 6)) {
-		case 0:
-			s=  getWhile();
-		case 1:
-			s= getFor();
-		case 2:
-			s= exp_as((int)getRandomArbitrary(1,3));
-		case 3:
-			s=  exp_logics((int)getRandomArbitrary(1,3));
-		case 4:
-			s= exp_a();
-		case 5:
-			s= exp_logic();
-		case 6:
-			s= getIf((int)getRandomArbitrary(1,3));
-		default:
-			s= exp_a();
-
-		}
-
-		String expresion="="+s;
-		return  expresion);
-
-	}
-	 */
-
-	/*
-	 * si toca alguna funcion(x), x es entre [1,3)
-	 * pero de momento no lo uso es porque puede que pide mucha memoria 
-	 */
-	/*
-	public String EG_con_if() {
-		//While | for | exp_as | exp_logics | exp_a | exp_logic | ifs
-		String s;
-		switch((int)getRandomArbitrary(0, 6)) {
-		case 0:
-			s=  getWhile();
-		case 1:
-			s= getFor();
-		case 2:
-			s= exp_as((int)getRandomArbitrary(1,3));
-		case 3:
-			s=  exp_logics((int)getRandomArbitrary(1,3));
-		case 4:
-			s= exp_a();
-		case 5:
-			s= exp_logic();
-		case 6:
-			s= getIf((int)getRandomArbitrary(1,3));
-		default:
-			s= exp_a();
-
-		}
-
-		String expresion="="+s;
-		return  expresion);
-
-	}
-	 */
+	
 
 	/*
 	 * Bug, no incluye bucles ni Ifs

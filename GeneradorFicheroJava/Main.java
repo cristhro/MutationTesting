@@ -1,24 +1,10 @@
 import java.util.ArrayList;
 
 public class Main {
-
-	public static void main(String[] args) {
-		String[] argsx= {"2","1","1","1","5","2","2","2","1,2,3,4,5,6,7,8,9,10,11,12,13,"};
-		// TODO Auto-generated method stub
-
-		int num_ifs=(new Integer(argsx[0])).intValue();
-		int num_while=new Integer(argsx[1]).intValue(); 
-		int size_while=new Integer(argsx[2]).intValue();
-		int num_for=new Integer(argsx[3]).intValue();
-		int size_for=new Integer(argsx[4]).intValue();
-		int size_cond=new Integer(argsx[5]).intValue();
-		int size_expLogics=new Integer(argsx[6]).intValue();
-		int size_expArit=new Integer(argsx[7]).intValue();
-		String tmp_inputs=argsx[8];
-
+	public static double[] parse(String args) {
+		String tmp_inputs=args;
 		//String s="1,2,3,4,5,6,7,8,9,10,11,12,13";
 		ArrayList<Double> tmp_inputs2=new ArrayList<Double>();
-		//double[] test_inputs=new double[tmp_inputs.length()-(tmp_inputs.length()/2)-1];
 		int p=0;
 		String num="";
 		while(p<tmp_inputs.length()) {
@@ -38,15 +24,32 @@ public class Main {
 			test_inputs[i]=tmp_inputs2.get(i);
 			System.out.println(tmp_inputs2.get(i));
 		}
+		return test_inputs;
+	}
+
+	public static void exe(String[] args ) {
+		int num_ifs=(new Integer(args[0])).intValue();
+		int num_while=new Integer(args[1]).intValue(); 
+		int size_while=new Integer(args[2]).intValue();
+		int num_for=new Integer(args[3]).intValue();
+		int size_for=new Integer(args[4]).intValue();
+		int size_cond=new Integer(args[5]).intValue();
+		int size_expLogics=new Integer(args[6]).intValue();
+		int size_expArit=new Integer(args[7]).intValue();
+		double[] test_inputs=parse(args[8]);
+		String ruta=args[9];
+		String nom_test=args[10];
+		String nom_program=args[11];
 		
-		Generardor g=new Generardor("test","C",test_inputs, num_ifs, num_while, size_while,  num_for,  size_for, size_cond,
+	
+		Generardor g=new Generardor(nom_test,nom_program,test_inputs, num_ifs, num_while, size_while,  num_for,  size_for, size_cond,
 				size_expLogics, size_expArit);
 		
-		String route="C:/Users/yu/eclipse-workspace/TFG/GeneradorFicheroJava";
-		GeneraFichero.crear(route,g.nom_test+".java",g.programa_test);
-		GeneraFichero.crear(route,g.nom_program+".java",g.s);
-		
-		/*
+		GeneraFichero.crear(ruta,g.nom_test+".java",g.programa_test);
+		GeneraFichero.crear(ruta,g.nom_program+".java",g.s);
+	}
+	
+	public static void debug() {
 		int num_ifs=2;
 		int num_while=1;
 		int size_while=1;
@@ -56,13 +59,21 @@ public class Main {
 		int size_expLogics=2;
 		int size_expArit=2;
 		double[] test_inputs= {1,2,3,4,5,6,7,8,9,10,11,12,13};
-
-
-		Generardor g=new Generardor("test1","C1",test_inputs, num_ifs, num_while, size_while,  num_for,  size_for, size_cond,
+		
+		Generardor g=new Generardor("test","C",test_inputs, num_ifs, num_while, size_while,  num_for,  size_for, size_cond,
 				size_expLogics, size_expArit);
-
-		 */
-
+	
+	/*
+		System.out.println(g.s);
+		System.out.println("%%%%%%%%%%%%%%%%%");
+		System.out.println(g.programa_test);
+	
+	*/	 
+		String route="C:/Users/yu/eclipse-workspace/TFG/GeneradorFicheroJava";
+		GeneraFichero.crear(route,g.nom_test+".java",g.programa_test);
+		GeneraFichero.crear(route,g.nom_program+".java",g.s);
+		
+		
 		//System.out.println("getWhile con 3:"+g.getWhiles(num_while,size_while,size_cond));
 		//System.out.println("getFor con 3:"+g.getFors(num_anidado,num_iteracion));
 		//System.out.println("getIfs con 3:"+g.getIfs(num_anidado));
@@ -81,24 +92,9 @@ public class Main {
 		//System.out.println("getNum: "+g.getNum());
 		//System.out.println("getBool: "+g.getBool());
 
-
-		/*
-		System.out.println(g.s);
-		System.out.println("%%%%%%%%%%%%%%%%%");
-
-
-		System.out.println(g.programa_test);
-
-		 */
-		/*String route="C:/Users/yu/eclipse-workspace/TFG/GeneradorFicheroJava";
-		GeneraFichero.crear(route,g.nom_test+".java",g.programa_test);
-		GeneraFichero.crear(route,g.nom_program+".java",g.s);
-		 */
-
-		/*
-		double[] inputs={1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0};
-		C1 c1=new C1(inputs);
-		System.out.println("hola");*/
+	}
+	public static void main(String[] args) {
+		debug();
 
 	};
 
