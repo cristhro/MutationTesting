@@ -6,10 +6,14 @@ public class test1{
 
 	@org.junit.Test
 	public void test() {
-
-		double[] inputs={1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0};
+		
+double[] inputs={1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0};
+		C1 c1 = new C1(inputs);
+		System.out.println(c1.get_result_num());
+		System.out.println(c1.get_result_num());
+		System.out.println(new C1(inputs).get_result_num());
 		assertArrayEquals(new C1(inputs).get_result_num(),new C1(inputs).get_result_num(),0);
 		assertArrayEquals(new C1(inputs).get_result_bool(),new C1(inputs).get_result_bool());
-
+	
 	}
 }

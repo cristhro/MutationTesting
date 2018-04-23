@@ -1,9 +1,10 @@
+import java.io.IOException;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		int num_ifs=1;
 		int num_while=1;
 		int size_while=1;
@@ -13,11 +14,11 @@ public class Main {
 		int size_expLogics=2;
 		int size_expArit=2;
 		double[] test_inputs= {1,2,3,4,5,6,7,8,9};
-		
+
 		Generardor g=new Generardor("test1","C1",test_inputs, num_ifs, num_while, size_while,  num_for,  size_for, size_cond,
 				 size_expLogics, size_expArit);
-				
-		
+
+
 		//System.out.println("getWhile con 3:"+g.getWhiles(num_anidado,num_iteracion,size_cond));
 		//System.out.println("getFor con 3:"+g.getFors(num_anidado,num_iteracion));
 		//System.out.println("getIfs con 3:"+g.getIfs(num_anidado));
@@ -35,25 +36,33 @@ public class Main {
 		//System.out.println("op_logic: "+g.op_logic());
 		//System.out.println("getNum: "+g.getNum());
 		//System.out.println("getBool: "+g.getBool());
-		
+
 		/*
-		
+
 		System.out.println(g.s);
 		System.out.println("%%%%%%%%%%%%%%%%%");
-		
+
 		System.out.println(g.programa_test);
 		*/
-		
-		String route="C:/Users/yu/eclipse-workspace/TFG/GeneradorFicheroJava";
+
+		String route=getCurrentPath();
 		GeneraFichero.crear(route,g.nom_test+".java",g.programa_test);
 		GeneraFichero.crear(route,g.nom_program+".java",g.s);
-		
-		
+
+
 		/*
 		double[] inputs={1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0};
 		C1 c1=new C1(inputs);
 		System.out.println("hola");*/
-		
 	};
-
+	
+	private static String getCurrentPath() {
+		String current=null;
+		try {
+			current = new java.io.File( "." ).getCanonicalPath();
+		} catch (IOException e) {
+			System.out.println("ERROR: Error al obtener el path del fichero");
+		}
+		return current + "/GeneradorFicheroJava";
+	}
 };
