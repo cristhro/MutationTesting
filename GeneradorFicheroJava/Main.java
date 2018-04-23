@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -69,7 +70,7 @@ public class Main {
 		System.out.println(g.programa_test);
 	
 	*/	 
-		String route="C:/Users/yu/eclipse-workspace/TFG/GeneradorFicheroJava";
+		String route=getCurrentPath();
 		GeneraFichero.crear(route,g.nom_test+".java",g.programa_test);
 		GeneraFichero.crear(route,g.nom_program+".java",g.s);
 		
@@ -97,5 +98,14 @@ public class Main {
 		debug();
 
 	};
+	private static String getCurrentPath() {
+		String current=null;
+		try {
+			current = new java.io.File( "." ).getCanonicalPath();
+		} catch (IOException e) {
+			System.out.println("ERROR: Error al obtener el path del fichero");
+		}
+		return current + "/GeneradorFicheroJava";
+	}
 
 };
